@@ -31,10 +31,28 @@
 .header-list-item{
     list-style: none;
     display: inline-block;
-    padding: 10px;
+    padding: 0.5em;
 }
 
 .header-anchor{
     text-decoration: none;
     color: white;
+}
+
+@media (max-width:498px) {
+    .header-title-item{
+        margin-right: 0;
+    }
+
+    .header-title{
+        font-size: 1.15em;
+    }
+
+    .header-list-item{
+        margin: 0;
+    }
+
+    .header-anchor{
+        font-size: 0.65em;
+    }
 }
