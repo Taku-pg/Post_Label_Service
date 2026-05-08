@@ -86,6 +86,5 @@
 }
 
 .delivery-type-button:hover{
-    color: black;
-    border-color: rgb(225, 99, 99);
+    background-color: rgb(193, 64, 64);
 }
