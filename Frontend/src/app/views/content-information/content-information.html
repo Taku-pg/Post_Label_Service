@@ -1,23 +1,5 @@
 <div class="content-info">
-    <div class="progress">
-        <div class="step">
-            <h2 class="step-number">1 </h2>
-            <h4 class="step-description">Choose Delivery Type </h4>
-        </div>
-        <div class="step">
-            <h2 class="step-number">2 </h2>
-            <h4 class="step-description">Delivery Information </h4>
-        </div>
-        <div class="step">
-            <h2 class="step-number target">3 </h2>
-            <h4 class="step-description">Contents Information </h4>
-        </div>
-        <div class="step">
-            <h2 class="step-number">4 </h2>
-            <h4 class="step-description">Confirmation </h4>
-        </div>
-    </div>
-    <hr class="border">
+    <div><app-progress [isTarget]="3"></app-progress></div>
 
     <div class="contents">
         <h2 class="contents-header">Contents Information</h2>
@@ -28,7 +10,10 @@
                         <th>Product Name</th>
                         <th>Amount</th>
                         <th>Price</th>
+                        <th>Weight (kg)</th>
+                        <th>Country of Origin</th>
                         <th>Type</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,13 +21,19 @@
                         <td>Green Tea</td>
                         <td>2</td>
                         <td>50PLN</td>
+                        <td>0.01</td>
+                        <td>Japan</td>
                         <td>Food</td>
+                        <td><button type="button" class="delete-button">delete</button></td>
                     </tr>
                     <tr>
                         <td>iphone</td>
                         <td>1</td>
                         <td>3000PLN</td>
+                        <td>0.15</td>
+                        <td>China</td>
                         <td>Electronic Device</td>
+                        <td><button type="button" class="delete-button">delete</button></td>
                     </tr>
                 </tbody>
                 <tfoot>
@@ -50,6 +41,7 @@
                         <td>Total</td>
                         <td>3</td>
                         <td>3100PLN</td>
+                        <td>0.16</td>
                     </tr>
                 </tfoot>
             </table>
@@ -78,8 +70,10 @@
 
             <div class="input-item">
                 <label for="type-name" class="input-label">Type</label>
-                <input type="text" placeholder="Enter Item Type" id="type-name" name="type-name" class="input-field"
-                    required="">
+                <select id="type-name" name="type-name" class="select-field" required="">
+                    <option value="" disabled hidden selected>Select Item Type</option>
+                    <option value="food">Food</option>
+                </select>
             </div>
 
             <div class="add-button-container">

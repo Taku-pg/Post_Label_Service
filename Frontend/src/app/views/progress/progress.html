@@ -1,0 +1,19 @@
+<div class="progress">
+    <div class="step">
+        <h2 [ngClass]="{'target': isTarget()===1, 'step-number':true}">1 </h2>
+        <h4 class="step-description">Choose Delivery Type </h4>
+    </div>
+    <div class="step">
+        <h2 [ngClass]="{'target': isTarget()===2, 'step-number':true}">2 </h2>
+        <h4 class="step-description">Delivery Information </h4>
+    </div>
+    <div class="step">
+        <h2 [ngClass]="{'target': isTarget()===3, 'step-number':true}">3 </h2>
+        <h4 class="step-description">Contents Information </h4>
+    </div>
+    <div class="step">
+        <h2 [ngClass]="{'target': isTarget()===4, 'step-number':true}">4 </h2>
+        <h4 class="step-description">Confirmation </h4>
+    </div>
+</div>
+<hr class="border">

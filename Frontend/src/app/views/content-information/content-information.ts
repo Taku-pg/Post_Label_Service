@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NgClass } from "../../../../node_modules/@angular/common/types/_common_module-chunk";
+import { Progress } from "../progress/progress";
 
 @Component({
   selector: 'app-content-information',
-  imports: [],
+  imports: [Progress],
   templateUrl: './content-information.html',
   styleUrl: './content-information.css',
 })

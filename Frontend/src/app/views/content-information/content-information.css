@@ -5,49 +5,6 @@
     align-items: center;
 }
 
-.progress {
-    width: 80%;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1em;
-}
-
-@media (max-width: 498px) {
-    .progress{
-        display: flex;
-        flex-direction: column;
-        gap: 0.1em;
-    }
-}
-
-.step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.target {
-    margin-top: 7%;
-    padding: 0;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.5em;
-    height: 1.5em;
-    border: 3px solid rgb(225, 99, 99);
-    border-radius: 50%;
-}
-
-
-.step-number {
-    color: rgb(225, 99, 99);
-    font-size: 1em;
-}
-
-.step-description {
-    color: rgb(225, 99, 99);
-    font-size: 1em;
-}
 
 .border {
     border-top: 5px solid rgb(225, 99, 99);
@@ -85,12 +42,12 @@
 
 .items tbody td:nth-child(2), 
 .items tbody td:nth-child(3), 
+.items tbody td:nth-child(4), 
 .items tfoot td:nth-child(2), 
-.items tfoot td:nth-child(3){
+.items tfoot td:nth-child(3),
+.items tfoot td:nth-child(4){
     text-align: right;
 } 
-
-
 
 .items tfoot td{
     font-weight: bold;
@@ -103,6 +60,13 @@
     text-align: center;
 }
 
+.delete-button{
+    border-radius: 10%;
+    background-color: rgb(225, 99, 99);
+    color: white;
+    border: white;
+    padding: 5px 10px;
+}
 
 .content-input-field{
     display: flex;
@@ -127,6 +91,19 @@
     padding: 10px;
 }
 
+.select-field{
+    margin-right: 5%;
+    padding: 13px 6px;
+}
+
+.select-field:invalid{
+    color: gray;
+}
+
+.select-field option{
+    color: black;
+}
+
 .add-button-container{
     align-self: flex-end;
     margin-right: 4%;
@@ -147,6 +124,6 @@
     padding: 10px 15px;
 }
 
-.add-button:hover, .control-button:hover{
+.add-button:hover, .control-button:hover, .delete-button:hover{
     background-color: rgb(193, 64, 64);
 }
