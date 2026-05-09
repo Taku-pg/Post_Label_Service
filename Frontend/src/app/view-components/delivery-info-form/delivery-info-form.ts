@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-delivery-info-form',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './delivery-info-form.css',
 })
 export class DeliveryInfoForm {
-
+  isReadOnly = input<boolean>(false);
 }

@@ -9,7 +9,9 @@
                 <th>Weight (kg)</th>
                 <th>Country of Origin</th>
                 <th>Type</th>
-                <th></th>
+                @if(!isReadOnly()){
+                   <th></th> 
+                }
             </tr>
         </thead>
         <tbody>
@@ -20,7 +22,9 @@
                 <td>0.01</td>
                 <td>Japan</td>
                 <td>Food</td>
-                <td><button type="button" class="delete-button">delete</button></td>
+                @if (!isReadOnly()) {
+                    <td><button type="button" class="delete-button">delete</button></td>
+                }
             </tr>
             <tr>
                 <td>iphone</td>
@@ -29,7 +33,9 @@
                 <td>0.15</td>
                 <td>China</td>
                 <td>Electronic Device</td>
-                <td><button type="button" class="delete-button">delete</button></td>
+                @if(!isReadOnly()){
+                    <td><button type="button" class="delete-button">delete</button></td>
+                }
             </tr>
         </tbody>
         <tfoot>
@@ -40,7 +46,9 @@
                 <td>0.16</td>
                 <td></td>
                 <td></td>
-                <td></td>
+                @if(!isReadOnly()){
+                    <td></td>
+                }
             </tr>
         </tfoot>
     </table>

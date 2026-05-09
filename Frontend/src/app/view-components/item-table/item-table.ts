@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-item-table',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './item-table.css',
 })
 export class ItemTable {
-
+  isReadOnly = input<boolean>(false);
 }
