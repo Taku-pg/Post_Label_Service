@@ -1,0 +1,71 @@
+.items{
+    overflow-x: auto;
+}
+
+.items table{
+   width: 100%;
+   border-spacing: 0;
+   margin-bottom: 3%;
+}
+
+.items table thead tr th:first-child {
+  border-top-left-radius: 10px;
+}
+.items table thead tr th:last-child {
+  border-top-right-radius: 10px;
+}
+.items table tfoot tr td:last-child {
+  border-bottom-right-radius: 10px;
+}
+.items table tfoot tr td:first-child {
+  border-bottom-left-radius: 10px; 
+}
+
+.items table thead{
+    background-color: rgb(236, 140, 140);
+}
+
+.items thead th{
+    color: white;
+    font-size: 0.8em;
+    padding: 0.8em 0.8em 0.8em 0.01em;
+    text-align: center;
+}
+
+.items tbody tr, .items tfoot tr{
+    background-color: white;
+}
+
+.items tbody tr td{
+    border-bottom: solid 1px rgb(160, 149, 149);
+}
+
+.items tbody td, .items tfoot td{
+    text-align: center;
+    padding: 0.8em 0.8em 0.8em 0.01em;
+}
+
+.items tbody td:nth-child(2), 
+.items tbody td:nth-child(3), 
+.items tbody td:nth-child(4), 
+.items tfoot td:nth-child(2), 
+.items tfoot td:nth-child(3),
+.items tfoot td:nth-child(4){
+    text-align: right;
+} 
+
+.items tfoot td{
+    font-weight: bold;
+}
+
+.delete-button{
+    border-radius: 5px;
+    background-color: rgb(225, 99, 99);
+    color: white;
+    border: white;
+    padding: 5px 10px;
+}
+
+.delete-button:hover{
+    background-color: rgb(193, 64, 64);
+}

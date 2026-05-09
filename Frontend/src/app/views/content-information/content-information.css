@@ -89,11 +89,15 @@
     margin-right: 5%;
     height: 20px;
     padding: 10px;
+    border-radius: 5px;
+    border: solid 1px rgb(136, 132, 132);
 }
 
 .select-field{
     margin-right: 5%;
     padding: 13px 6px;
+    border-radius: 5px;
+    border: solid 1px rgb(136, 132, 132);
 }
 
 .select-field:invalid{
@@ -117,13 +121,13 @@
 }
 
 .add-button, .control-button{
-    border-radius: 15%;
+    border-radius: 5px;
     background-color: rgb(225, 99, 99);
     color: white;
     border: white;
     padding: 10px 15px;
 }
 
-.add-button:hover, .control-button:hover, .delete-button:hover{
+.add-button:hover, .control-button:hover{
     background-color: rgb(193, 64, 64);
 }
