@@ -14,14 +14,23 @@
                     class="input-field" required="">
             </div>
 
-            <div class="input-item">
-                <label for="amount" class="input-label">Amount</label>
-                <input type="number" id="amount" name="amount" class="input-field" required="" min="1">
-            </div>
 
-            <div class="input-item">
-                <label for="price" class="input-label">Price</label>
-                <input type="number" id="type-name" name="type-name" class="input-field" required="" min="1">
+
+            <div class="number-inputs">
+                <div class="input-item">
+                    <label for="amount" class="input-label">Amount</label>
+                    <input type="number" id="amount" name="amount" class="input-field" required="" min="1">
+                </div>
+
+                <div class="input-item">
+                    <label for="price" class="input-label">Price</label>
+                    <input type="number" id="price" name="price" class="input-field" required="" min="1">
+                </div>
+
+                <div class="input-item">
+                    <label for="weight" class="input-label">Weight(kg)</label>
+                    <input type="number" id="weight" name="weight" class="input-field" required="" step="0.001" min="0.001">
+                </div>
             </div>
 
             <div class="input-item">
@@ -30,6 +39,12 @@
                     <option value="" disabled hidden selected>Select Item Type</option>
                     <option value="food">Food</option>
                 </select>
+            </div>
+
+            <div class="input-item">
+                <label for="country-of-origin" class="input-label">Country of Origin</label>
+                <input type="text" placeholder="Enter Country of Origin" id="country-of-origin" name="country-of-origin"
+                    class="input-field" required="">
             </div>
 
             <div class="add-button-container">

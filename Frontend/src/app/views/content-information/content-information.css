@@ -27,6 +27,14 @@
     font-weight: bold;
 }
 
+.number-inputs{
+    display: flex;
+}
+
+.number-inputs .input-field{
+    width: 30%;
+}
+
 .input-item{
     margin: 10px;
     width: 100%;
