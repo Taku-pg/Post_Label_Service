@@ -1,11 +1,3 @@
-.delivery-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
 .border {
     border-top: 5px solid rgb(225, 99, 99);
     width: 80vw;
@@ -51,6 +43,8 @@
 .input-field{
     height: 20px;
     padding: 10px;
+    border-radius: 5px;
+    border: solid 1px rgb(136, 132, 132);
 }
 
 .city-zip{
@@ -64,6 +58,8 @@
 
 .select-field{
     padding: 13px 6px;
+    border-radius: 5px;
+    border: solid 1px rgb(136, 132, 132);
 }
 
 .select-field:invalid{
@@ -134,23 +130,4 @@
 
 .option-item:checked + .option-label::after {
   opacity: 1;
-}
-
-
-.delivery-info-button-container{
-    display: flex;
-    align-self: self-end;
-    gap: 20px;
-}
-
-.delivery-info-button{
-    border-radius: 5px;
-    background-color: rgb(225, 99, 99);
-    color: white;
-    border: white;
-    padding: 10px 15px;
-}
-
-.delivery-info-button:hover{
-    background-color: rgb(193, 64, 64);
 }
