@@ -1,0 +1,37 @@
+.confirmation {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.border {
+    border-top: 5px solid rgb(225, 99, 99);
+    width: 80vw;
+}
+
+.confirmation-contents{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+}
+
+.control-button-container{
+    margin-top: 5%;
+    margin-right: 10%;
+    display: flex;
+    align-self: flex-end;
+    gap: 20px;
+}
+
+.control-button{
+    border-radius: 5px;
+    background-color: rgb(225, 99, 99);
+    color: white;
+    border: white;
+    padding: 10px 15px;
+}
+
+.control-button:hover{
+    background-color: rgb(193, 64, 64);
+}

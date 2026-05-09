@@ -1,0 +1,14 @@
+<div class="confirmation">
+    <app-progress [isTarget]="4"></app-progress>
+
+    <div class="confirmation-contents">
+        <app-delivery-info-form [isReadOnly]="true"></app-delivery-info-form>
+        <hr class="border">
+        <app-item-table [isReadOnly]="true"></app-item-table>
+
+        <div class="control-button-container">
+            <button type="button" class="control-button">Back </button>
+            <button type="button" class="control-button">Confirm </button>
+        </div>
+    </div>
+</div>
