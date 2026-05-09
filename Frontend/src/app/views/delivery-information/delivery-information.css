@@ -5,7 +5,6 @@
     align-items: center;
 }
 
-
 .border {
     border-top: 5px solid rgb(225, 99, 99);
     width: 80vw;
@@ -15,127 +14,6 @@
     display: flex;
     flex-direction: column;
 }
-
-.delivery-info-title{
-    align-self: flex-start;
-}
-
-.form-content{
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-}
-
-.info-header{
-    font-weight: bold;
-}
-
-.sender-info-name{
-    display: flex;
-    gap: 1%;
-}
-
-.form-item{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
-
-.name-form{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin-bottom: 10px;
-}
-
-.input-field{
-    height: 20px;
-    padding: 10px;
-}
-
-.city-zip{
-    display: flex;
-    gap: 1%;
-}
-
-.city-zip .form-item{
-    width: 50%;
-}
-
-.select-field{
-    padding: 13px 6px;
-}
-
-.select-field:invalid{
-    color: gray;
-}
-
-.select-field option{
-    color: black;
-}
-
-.delivery-option{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.delivery-option-item{
-    margin-top: 8px;
-    margin-bottom: 10px;
-}
-
-.option-item {
- position: absolute;
- white-space: nowrap;
- border: 0;
- clip: rect(0 0 0 0);
- clip-path: inset(50%);
- overflow: hidden;
- height: 1px;
- width: 1px;
- margin: -1px;
- padding: 0;
-}
-
-.option-label {
-  position: relative;
-  cursor: pointer;
-  padding-left: 30px;
-}
-
-.option-label::before,
-.option-label::after {
-  content: "";
-  display: block; 
-  border-radius: 50%;
-  position: absolute;
-  transform: translateY(-50%);
-  top: 50%;
-}
-
-.option-label::before {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  left: 5px;
-}
-
-.option-label::after {
-  background-color: rgb(225, 99, 99);
-  border-radius: 50%;
-  opacity: 0;
-  width: 13px;
-  height: 13px;
-  left: 9px;
-}
-
-.option-item:checked + .option-label::after {
-  opacity: 1;
-}
-
 
 .delivery-info-button-container{
     display: flex;

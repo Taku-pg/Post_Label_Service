@@ -17,61 +17,10 @@
     width: 80vw;
 }
 
-.items{
-    overflow-x: auto;
-}
-
-.items table{
-   width: 100%;
-   border-collapse: collapse;
-   margin-bottom: 3%;
-}
-
-.items table thead{
-    background-color: rgb(236, 140, 140);
-}
-
-.items tbody tr, .items tfoot tr{
-    border-bottom: solid 1px black;
-}
-
-.items tbody td, .items tfoot td{
-    text-align: center;
-    padding: 0.8em 0.8em 0.8em 0.01em;
-}
-
-.items tbody td:nth-child(2), 
-.items tbody td:nth-child(3), 
-.items tbody td:nth-child(4), 
-.items tfoot td:nth-child(2), 
-.items tfoot td:nth-child(3),
-.items tfoot td:nth-child(4){
-    text-align: right;
-} 
-
-.items tfoot td{
-    font-weight: bold;
-}
-
-.items thead th{
-    color: white;
-    font-size: 0.8em;
-    padding: 0.8em 0.8em 0.8em 0.01em;
-    text-align: center;
-}
-
-.delete-button{
-    border-radius: 10%;
-    background-color: rgb(225, 99, 99);
-    color: white;
-    border: white;
-    padding: 5px 10px;
-}
 
 .content-input-field{
     display: flex;
     flex-direction: column;
-    padding: 10px;
 }
 
 .input-header{
