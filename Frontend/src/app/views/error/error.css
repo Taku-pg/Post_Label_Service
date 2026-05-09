@@ -1,0 +1,10 @@
+.error-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+}
+
+h1, h3{
+    color: rgb(225, 99, 99);
+}
