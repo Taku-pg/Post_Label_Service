@@ -8,6 +8,10 @@
     font-weight: bold;
 }
 
+.add-item-form{
+    display: flex;
+    flex-direction: column;
+}
 .number-inputs{
     display: flex;
 }

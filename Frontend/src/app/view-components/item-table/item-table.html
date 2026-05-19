@@ -5,7 +5,7 @@
             <tr>
                 <th>Product Name</th>
                 <th>Amount</th>
-                <th>Price</th>
+                <th>Price(PLN)</th>
                 <th>Weight (kg)</th>
                 <th>Country of Origin</th>
                 <th>Type</th>
@@ -15,35 +15,26 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Green Tea</td>
-                <td>2</td>
-                <td>50PLN</td>
-                <td>0.01</td>
-                <td>Japan</td>
-                <td>Food</td>
+            @for (item of deliveryService.deliveryInfo().contents; track $index) {
+                <tr>
+                <td>{{item.productName}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.weight}}</td>
+                <td>{{item.countryOfOrigin}}</td>
+                <td>{{item.type}}</td>
                 @if (!isReadOnly()) {
                     <td><button type="button" class="delete-button">delete</button></td>
                 }
             </tr>
-            <tr>
-                <td>iphone</td>
-                <td>1</td>
-                <td>3000PLN</td>
-                <td>0.15</td>
-                <td>China</td>
-                <td>Electronic Device</td>
-                @if(!isReadOnly()){
-                    <td><button type="button" class="delete-button">delete</button></td>
-                }
-            </tr>
+            }
         </tbody>
         <tfoot>
             <tr>
                 <td>Total</td>
-                <td>3</td>
-                <td>3100PLN</td>
-                <td>0.16</td>
+                <td>{{totalValues().totalAmount}}</td>
+                <td>{{totalValues().toatlPrice}}PLN</td>
+                <td>{{totalValues().totalWeight}}kg</td>
                 <td></td>
                 <td></td>
                 @if(!isReadOnly()){
