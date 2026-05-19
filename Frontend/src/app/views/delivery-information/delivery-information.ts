@@ -9,5 +9,11 @@ import { DeliveryInfoForm } from "../../view-components/delivery-info-form/deliv
   styleUrl: './delivery-information.css',
 })
 export class DeliveryInformation {
-
+  //async pipeでhtmlに直でobservableの値を表示できる
+  //ts
+  //user$ = this.userService.user$; 
+  //html
+  //<div *ngIf="user$ | async as user">
+  //<p>名前：{{ user.name }}</p>
+  //</div>
 }
