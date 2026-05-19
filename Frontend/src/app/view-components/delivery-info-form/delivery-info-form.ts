@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { DeliveryService } from '../../services/delivery.service';
 
 @Component({
   selector: 'app-delivery-info-form',
@@ -8,4 +9,6 @@ import { Component, input } from '@angular/core';
 })
 export class DeliveryInfoForm {
   isReadOnly = input<boolean>(false);
+  private _deliveryService = inject(DeliveryService);
+  isInternatinal: boolean = this._deliveryService.deliveryInfo().deliveryType === 'international'; 
 }

@@ -81,7 +81,7 @@
     margin-bottom: 10px;
 }
 
-.option-item {
+.option-item, .purpose-item {
  position: absolute;
  white-space: nowrap;
  border: 0;
@@ -94,14 +94,16 @@
  padding: 0;
 }
 
-.option-label {
+.option-label, .purpose-label {
   position: relative;
   cursor: pointer;
   padding-left: 30px;
 }
 
 .option-label::before,
-.option-label::after {
+.option-label::after,
+.purpose-label::before,
+.purpose-label::after {
   content: "";
   display: block; 
   border-radius: 50%;
@@ -110,7 +112,8 @@
   top: 50%;
 }
 
-.option-label::before {
+.option-label::before,
+.purpose-label::before {
   background-color: white;
   border: 1px solid black;
   border-radius: 50%;
@@ -119,7 +122,8 @@
   left: 5px;
 }
 
-.option-label::after {
+.option-label::after,
+.purpose-label::after {
   background-color: rgb(225, 99, 99);
   border-radius: 50%;
   opacity: 0;
@@ -128,6 +132,7 @@
   left: 9px;
 }
 
-.option-item:checked + .option-label::after {
+.option-item:checked + .option-label::after,
+.purpose-item:checked + .purpose-label::after {
   opacity: 1;
 }
