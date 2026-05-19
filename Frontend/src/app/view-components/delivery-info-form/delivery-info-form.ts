@@ -10,5 +10,5 @@ import { DeliveryService } from '../../services/delivery.service';
 export class DeliveryInfoForm {
   isReadOnly = input<boolean>(false);
   private _deliveryService = inject(DeliveryService);
-  isInternatinal: boolean = this._deliveryService.deliveryInfo().deliveryType === 'international'; 
+  isInternational: boolean = this._deliveryService.deliveryInfo().deliveryType === 'international'; 
 }
