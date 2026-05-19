@@ -1,6 +1,7 @@
 import { Injectable, signal } from "@angular/core";
 import { type DeliveryModel } from "../models/delivery.model";
 import { type Item } from "../models/item.model";
+import { type DeliveryInfo } from "../models/deliveryInfo.model";
 
 @Injectable({
     providedIn: 'root'
@@ -8,6 +9,7 @@ import { type Item } from "../models/item.model";
 export class DeliveryService{
     private _deliveryInfo = signal<DeliveryModel>({
         deliveryType: null,
+        deliveryInfo: null,
         contents: []
     });
 
@@ -16,6 +18,7 @@ export class DeliveryService{
     reset(){
         this._deliveryInfo.set({
             deliveryType:null,
+            deliveryInfo:null,
             contents: []
         });
     }
@@ -24,8 +27,8 @@ export class DeliveryService{
         this._deliveryInfo.update(curr=>({...curr, deliveryType: deliveryType}));
     }
 
-    setDeliveryInfo(deliveryInfo: DeliveryModel){
-
+    setDeliveryInfo(deliveryInfo: DeliveryInfo){
+        this._deliveryInfo.update(curr=>({...curr, deliveryInfo: deliveryInfo}));
     }
 
     setContents(contents: Item[]){
