@@ -1,0 +1,43 @@
+.confirm-dialog{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(225, 99, 99);
+}
+
+.dialog-header{
+    padding: 2%;
+    color: white;
+    padding: 2%;
+    height: 20%;
+}
+
+.dialog-body{
+    background-color: white;
+    padding: 2%;
+    height: 60%;
+}
+
+.message{
+    white-space: pre-line;
+    color: rgb(100, 94, 94);
+}
+
+.dialog-footer{
+    background-color: white;
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+}
+
+.btn{
+    border-radius: 5px;
+    background-color: rgb(225, 99, 99);
+    color: white;
+    border: white;
+    padding: 8px 13px;
+    margin-top: 1%;
+}
+
+.btn:hover{
+    background-color: rgb(193, 64, 64);
+}
