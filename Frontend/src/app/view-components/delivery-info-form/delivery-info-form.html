@@ -1,133 +1,143 @@
 <h2 class="delivery-info-form-title">Delivery Information</h2>
 
-<div class="form-content">
-    <p class="info-header">Sender Information </p>
-    <div class="sender-info-name">
-        <div class="name-form">
-            <label for="first-name" class="name-label">First Name</label>
-            <input type="text" placeholder="Enter your First Name" id="first-name" name="first-name" class="input-field"
-                required="" [readOnly]="isReadOnly()">
-        </div>
+<form [formGroup]="deliveryInfoForm">
+    <div class="form-content">
+        <p class="info-header">Sender Information </p>
+        <div class="sender-info-name">
+            <div class="name-form">
+                <label for="first-name" class="name-label">First Name</label>
+                <input type="text" placeholder="Enter your First Name" id="first-name"
+                    class="input-field" required="" [readOnly]="isReadOnly()" formControlName="firstName">
+            </div>
 
-        <div class="name-form">
-            <label for="last-name" class="name-label">Last Name</label>
-            <input type="text" placeholder="Enter your Last Name" id="last-name" name="last-name" class="input-field"
-                required="" [readOnly]="isReadOnly()">
-        </div>
-    </div>
-
-    <div class="form-item">
-        <label for="compane-name" class="u-label">Company Name </label>
-        <input type="text" placeholder="Enter Company Name" id="company-name" name="company-name" class="input-field"
-            [readOnly]="isReadOnly()">
-    </div>
-
-    <div class="form-item">
-        <label for="email" class="">Email</label>
-        <input type="email" placeholder="Enter a valid email address" id="email" name="email" class="input-field"
-            required="" [readOnly]="isReadOnly()">
-    </div>
-
-
-    <div class="form-item">
-        <label for="phone" class="u-label">Phone</label>
-        <input type="tel"
-            pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})"
-            placeholder="Enter your phone (e.g. +14155552675)" id="phone" name="phone" class="input-field" required=""
-            [readOnly]="isReadOnly()">
-    </div>
-
-
-    <hr class="border">
-</div>
-<div class="form-content">
-    <p class="info-header">Sender Address</p>
-    <div class="form-item">
-        <label for="sender-street" class="u-label">Street</label>
-        <input type="text" placeholder="Enter your street" id="sender-street" name="sender-street" class="input-field"
-            required [readOnly]="isReadOnly()">
-    </div>
-
-    <div class="city-zip">
-        <div class="form-item">
-            <label for="sender-city" class="u-label">City</label>
-            <input type="text" placeholder="Enter your city" id="sender-city" name="sender-city" class="input-field"
-                [readOnly]="isReadOnly()">
+            <div class="name-form">
+                <label for="last-name" class="name-label">Last Name</label>
+                <input type="text" placeholder="Enter your Last Name" id="last-name"
+                    class="input-field" required="" [readOnly]="isReadOnly()" formControlName="lastName">
+            </div>
         </div>
 
         <div class="form-item">
-            <label for="sender-zip" class="u-label">Zip</label>
-            <input type="text" placeholder="Enter your zip" id="sender-zip" name="sender-zip" class="input-field"
-                [readOnly]="isReadOnly()">
-        </div>
-    </div>
-
-    <div class="form-item">
-        <label for="sender-country" class="u-label">Country</label>
-        <select id="sender-country" name="sender-country" class="select-field" required>
-            <option value="" disabled hidden selected>Select Country</option>
-            <option value="United States">United States</option>
-        </select>
-    </div>
-
-
-</div>
-
-<div class="form-content">
-    <p class="info-header">Receiver Address </p>
-    <div class="form-item">
-        <label for="receiver-street" class="u-label">Street</label>
-        <input type="text" placeholder="Enter your street" id="receiver-street" name="receiver-street"
-            class="input-field" required [readOnly]="isReadOnly()">
-    </div>
-
-    <div class="city-zip">
-        <div class="form-item">
-            <label for="receiver-city" class="u-label">City</label>
-            <input type="text" placeholder="Enter your city" id="receiver-city" name="receiver-city" class="input-field"
-                [readOnly]="isReadOnly()">
+            <label for="compane-name" class="u-label">Company Name </label>
+            <input type="text" placeholder="Enter Company Name" id="company-name"
+                class="input-field" [readOnly]="isReadOnly()" formControlName="company">
         </div>
 
         <div class="form-item">
-            <label for="receiver-zip" class="u-label">Zip</label>
-            <input type="text" placeholder="Enter your zip" id="receiver-zip" name="receiver-zip" class="input-field"
-                [readOnly]="isReadOnly()">
+            <label for="email" class="">Email</label>
+            <input type="email" placeholder="Enter a valid email address" id="email" class="input-field"
+                required="" [readOnly]="isReadOnly()" formControlName="email">
+        </div>
+
+
+        <div class="form-item">
+            <label for="phone" class="u-label">Phone</label>
+            <input type="tel"
+                pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})"
+                placeholder="Enter your phone (e.g. +14155552675)" id="phone" class="input-field"
+                required="" [readOnly]="isReadOnly()" formControlName="phone">
+        </div>
+
+
+        <hr class="border">
+    </div>
+    <div class="form-content">
+        <p class="info-header">Sender Address</p>
+        <div class="form-item">
+            <label for="sender-street" class="u-label">Street</label>
+            <input type="text" placeholder="Enter your street" id="sender-street"
+                class="input-field" required [readOnly]="isReadOnly()" formControlName="senderStreet">
+        </div>
+
+        <div class="city-zip">
+            <div class="form-item">
+                <label for="sender-city" class="u-label">City</label>
+                <input type="text" placeholder="Enter your city" id="sender-city" class="input-field"
+                    [readOnly]="isReadOnly()" formControlName="senderCity">
+            </div>
+
+            <div class="form-item">
+                <label for="sender-zip" class="u-label">Zip</label>
+                <input type="text" placeholder="Enter your zip" id="sender-zip" class="input-field"
+                    [readOnly]="isReadOnly()" formControlName="senderZip">
+            </div>
+        </div>
+
+        @if(isInternational){
+        <div class="form-item">
+            <label for="sender-country" class="u-label">Country</label>
+            <select id="sender-country" class="select-field" required formControlName="senderCountry">
+                <option value="" disabled hidden selected>Select Country</option>
+                <option value="United States">United States</option>
+            </select>
+        </div>
+        }
+
+
+
+    </div>
+
+    <div class="form-content">
+        <p class="info-header">Receiver Address </p>
+        <div class="form-item">
+            <label for="receiver-street" class="u-label">Street</label>
+            <input type="text" placeholder="Enter your street" id="receiver-street"
+                class="input-field" required [readOnly]="isReadOnly()" formControlName="receiverStreet">
+        </div>
+
+        <div class="city-zip">
+            <div class="form-item">
+                <label for="receiver-city" class="u-label">City</label>
+                <input type="text" placeholder="Enter your city" id="receiver-city" 
+                    class="input-field" [readOnly]="isReadOnly()" formControlName="receiverCity">
+            </div>
+
+            <div class="form-item">
+                <label for="receiver-zip" class="u-label">Zip</label>
+                <input type="text" placeholder="Enter your zip" id="receiver-zip"
+                    class="input-field" [readOnly]="isReadOnly()" formControlName="receiverZip">
+            </div>
+        </div>
+
+        @if(isInternational){
+        <div class="form-item">
+            <label for="receiver-country" class="u-label">Country</label>
+            <select id="receiver-country" class="select-field" required formControlName="receiverCountry">
+                <option value="" disabled hidden selected>Select Country</option>
+                <option value="United States">United States</option>
+            </select>
+        </div>
+        }
+
+    </div>
+
+    <div class="delivery-option">
+        <label class="info-header">Delivery Option</label>
+        <div class="delivery-option-item">
+            <input id="standard" type="radio" value="standard" class="option-item"
+                checked="checked" formControlName="deliveryOption">
+            <label class="option-label" for="standard">Standard</label>
+        </div>
+
+        <div class="delivery-option-item">
+            <input id="express" type="radio" value="express" class="option-item"
+             formControlName="deliveryOption">
+            <label class="option-label" for="express">Express</label>
         </div>
     </div>
 
-    <div class="form-item">
-        <label for="receiver-country" class="u-label">Country</label>
-        <select id="receiver-country" name="receiver-country" class="select-field" required>
-            <option value="" disabled hidden selected>Select Country</option>
-            <option value="United States">United States</option>
-        </select>
-    </div>
-</div>
+    @if(isInternational){
+    <div class="delivery-purpose">
+        <label class="info-header">Delivery Purpose</label>
+        <div class="delivery-option-item">
+            <input id="gift" type="radio" value="gift" class="purpose-item" checked="checked" formControlName="deliveryPurpose">
+            <label class="purpose-label" for="gift">Gift</label>
+        </div>
 
-<div class="delivery-option">
-    <label class="info-header">Delivery Option</label>
-    <div class="delivery-option-item">
-        <input id="standard" type="radio" name="delivery-option" value="standard" class="option-item" checked="checked">
-        <label class="option-label" for="standard">Standard</label>
+        <div class="delivery-option-item">
+            <input id="sales" type="radio" value="sales" class="purpose-item" formControlName="deliveryPurpose">
+            <label class="purpose-label" for="sales">Sales of goods</label>
+        </div>
     </div>
-
-    <div class="delivery-option-item">
-        <input id="express" type="radio" name="delivery-option" value="express" class="option-item">
-        <label class="option-label" for="express">Express</label>
-    </div>
-</div>
-
-@if(isInternational){
-<div class="delivery-purpose">
-    <label class="info-header">Delivery Purpose</label>
-    <div class="delivery-option-item">
-        <input id="gift" type="radio" name="delivery-purpose" value="gift" class="purpose-item" checked="checked">
-        <label class="purpose-label" for="gift">Gift</label>
-    </div>
-
-    <div class="delivery-option-item">
-        <input id="sales" type="radio" name="delivery-purpose" value="sales" class="purpose-item">
-        <label class="purpose-label" for="sales">Sales of goods</label>
-    </div>
-</div>
-}
+    }
+</form>
