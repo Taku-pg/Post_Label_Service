@@ -24,7 +24,7 @@
                 <td>{{item.countryOfOrigin}}</td>
                 <td>{{item.type}}</td>
                 @if (!isReadOnly()) {
-                    <td><button type="button" class="delete-button">delete</button></td>
+                    <td><button type="button" class="delete-button" (click)="onClickDelete($index)">delete</button></td>
                 }
             </tr>
             }

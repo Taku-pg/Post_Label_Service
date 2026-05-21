@@ -34,4 +34,10 @@ export class ItemTable {
     }
   });
 
+  onClickDelete(index: number){
+    const contents = this.deliveryService.deliveryInfo().contents;
+    const targetItem = contents.at(index);
+    this.deliveryService.removeItem(targetItem!);
+  }
+
 }
