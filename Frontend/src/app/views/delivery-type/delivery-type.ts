@@ -30,7 +30,7 @@ export class DeliveryType implements OnInit{
   }
 
   onSelectSearch(){
-    
+    this._router.navigate(['delivery-search']);
   }
 
 }

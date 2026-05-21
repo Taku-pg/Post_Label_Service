@@ -4,6 +4,8 @@ import { DeliveryInformation } from './views/delivery-information/delivery-infor
 import { ContentInformation } from './views/content-information/content-information';
 import { Confirmation } from './views/confirmation/confirmation';
 import { Error } from './views/error/error';
+import { DeliverySearch } from './views/delivery-search/delivery-search';
+import { DeliveryDetail } from './views/delivery-detail/delivery-detail';
 
 export const routes: Routes = [
     {
@@ -26,6 +28,14 @@ export const routes: Routes = [
     {
         path: 'confirmation',
         component: Confirmation
+    },
+    {
+        path: 'delivery-search',
+        component: DeliverySearch
+    },
+    {
+        path: 'delivery-detail',
+        component: DeliveryDetail
     },
     {
         path: 'error/500',
