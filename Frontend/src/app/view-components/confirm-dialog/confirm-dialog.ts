@@ -1,6 +1,5 @@
 import { Component, inject, input } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm-dialog',
@@ -10,22 +9,19 @@ import { Router } from '@angular/router';
 })
 export class ConfirmDialog {
   private _dialog = inject(MatDialogRef);
-  private router = inject(Router);
   data = inject(MAT_DIALOG_DATA);
-  
-  title = input<string>('');
-  message = input<string>('');
+  isOnlyOkDialog = this.data.type === 'ok' ? true:false;
 
   onClickConfirm(){
-    this.closeDialog();
-    this.router.navigate(['delivery-type']);
+    const res =  true;
+    this._dialog.close(res);
   }
 
   onClickCancel(){
-    this.closeDialog();
+    this._dialog.close();
   }
 
-  closeDialog(){
+  onClickOK(){
     this._dialog.close();
   }
 

@@ -6,7 +6,12 @@
         <h4 class="message">{{data.message}}</h4>
     </div>
     <div class="dialog-footer">
+        @if(isOnlyOkDialog){
+        <button type="button" class="btn" (click)="onClickOK()">OK</button>
+        }@else {
         <button type="button" class="btn" (click)="onClickConfirm()">Confirm</button>
         <button type="button" class="btn" (click)="onClickCancel()">Cancel</button>
+        }
+
     </div>
 </div>
