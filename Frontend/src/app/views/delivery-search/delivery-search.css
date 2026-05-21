@@ -33,10 +33,14 @@
     padding: 10px;
     border-radius: 5px;
     border: solid 1px rgb(136, 132, 132);
-    margin-bottom: 8%;
 }
 
-.search-button{
+.error{
+    color: rgb(232, 105, 105);
+    margin-top: 0;
+}
+
+.search-button, .back-button{
     border-radius: 5px;
     background-color: rgb(225, 99, 99);
     color: white;
@@ -45,6 +49,6 @@
     margin: 1em;
 }
 
-.search-button:hover{
+.search-button:hover, .back-button:hover{
     background-color: rgb(193, 64, 64);
 }

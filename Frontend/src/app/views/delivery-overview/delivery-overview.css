@@ -50,12 +50,20 @@
 }
 
 
-.detail-button, .back-button{
+.detail-button{
     border-radius: 5px;
     background-color: rgb(225, 99, 99);
     color: white;
     border: white;
     padding: 5px 10px;
+}
+
+.back-button{
+    border-radius: 5px;
+    background-color: rgb(225, 99, 99);
+    color: white;
+    border: white;
+    padding: 10px 15px;
 }
 
 .detail-button:hover, .back-button:hover{

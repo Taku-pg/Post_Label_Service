@@ -5,9 +5,15 @@
             <div class="input-container">
                 <label for="tracking-id" class="input-label">Tracking ID</label>
                 <input type="text" placeholder="ex. 123456789" id="tracking-id" class="input-field" required=""
-                    formControlName="trackingId">
+                    [formControl]="trackingIdControl">
+                @if(trackingIdControl.invalid && trackingIdControl.touched){
+                    <h4 class="error">Please input tracking id</h4>
+                }
             </div>
-                <button class="search-button" type="submit">Search</button>
+            <div class="button-container">
+                <button class="search-button" type="button" (click)="onClickBack()">Back</button>
+                <button class="search-button" type="button" (click)="onClickSearch()">Search</button>
+            </div>
         </form>
 
     </div>
