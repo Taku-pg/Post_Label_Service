@@ -1,0 +1,63 @@
+.delivery-overview{
+    height: 61.4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.delivery-overview table{
+   width: 80%;
+   border-spacing: 0;
+   margin-bottom: 3%;
+}
+
+.delivery-overview table thead tr th:first-child {
+  border-top-left-radius: 10px;
+}
+.delivery-overview table thead tr th:last-child {
+  border-top-right-radius: 10px;
+}
+.delivery-overview table tbody tr td:last-child {
+  border-bottom-right-radius: 10px;
+}
+.delivery-overview table tbody tr td:first-child {
+  border-bottom-left-radius: 10px; 
+}
+
+.delivery-overview table thead{
+    background-color: rgb(236, 140, 140);
+}
+
+.delivery-overview thead th{
+    color: white;
+    font-size: 1em;
+    padding: 0.8em 0.8em 0.8em 0.01em;
+    text-align: center;
+}
+
+.delivery-overview tbody tr{
+    background-color: white;
+}
+
+.delivery-overview tbody tr td{
+    border-bottom: solid 1px rgb(160, 149, 149);
+}
+
+.delivery-overview tbody td{
+    text-align: center;
+    padding: 0.8em 0.8em 0.8em 0.01em;
+}
+
+
+.detail-button{
+    border-radius: 5px;
+    background-color: rgb(225, 99, 99);
+    color: white;
+    border: white;
+    padding: 5px 10px;
+}
+
+.detail-button:hover{
+    background-color: rgb(193, 64, 64);
+}

@@ -6,6 +6,7 @@ import { Confirmation } from './views/confirmation/confirmation';
 import { Error } from './views/error/error';
 import { DeliverySearch } from './views/delivery-search/delivery-search';
 import { DeliveryDetail } from './views/delivery-detail/delivery-detail';
+import { DeliveryOverview } from './views/delivery-overview/delivery-overview';
 
 export const routes: Routes = [
     {
@@ -32,6 +33,10 @@ export const routes: Routes = [
     {
         path: 'delivery-search',
         component: DeliverySearch
+    },
+    {
+        path: 'delivery-overview',
+        component: DeliveryOverview
     },
     {
         path: 'delivery-detail',
