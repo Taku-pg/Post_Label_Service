@@ -1,3 +1,4 @@
+import { env } from "../../environment/env"
 import { effect, Injectable, signal } from "@angular/core";
 import { type DeliveryModel } from "../models/delivery.model";
 import { type Item } from "../models/item.model";
@@ -14,7 +15,7 @@ const DEFAULT_DELIVERY_MOEDL: DeliveryModel = {
     providedIn: 'root'
 })
 export class DeliveryService{
-    private readonly KEY = 'session_key';
+    private readonly KEY = env.SESSION_KEY;
     private _deliveryInfo = signal<DeliveryModel>(this.load());
 
     readonly deliveryInfo = this._deliveryInfo.asReadonly();
