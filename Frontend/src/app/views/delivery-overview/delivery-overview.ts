@@ -13,4 +13,8 @@ export class DeliveryOverview {
   onClickDetail(){
     this._router.navigate(['delivery-detail']);
   }
+
+  onClickBack(){
+    this._router.navigate(['delivery-search']);
+  }
 }

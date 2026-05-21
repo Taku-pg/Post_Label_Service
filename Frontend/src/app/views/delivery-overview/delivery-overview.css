@@ -50,7 +50,7 @@
 }
 
 
-.detail-button{
+.detail-button, .back-button{
     border-radius: 5px;
     background-color: rgb(225, 99, 99);
     color: white;
@@ -58,6 +58,6 @@
     padding: 5px 10px;
 }
 
-.detail-button:hover{
+.detail-button:hover, .back-button:hover{
     background-color: rgb(193, 64, 64);
 }
