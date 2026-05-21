@@ -20,7 +20,7 @@
     font-size: 1.5em;
 }
 
-.delivery-type-list {
+.delivery-type-list, .delivery-search {
     display: flex;
     justify-content: space-evenly;
     gap: 10%;
@@ -35,7 +35,8 @@
     width: 50%;
     background-color: rgb(225, 99, 99);
     padding: 10px;
-    border-radius: 5%;
+    border-radius: 5px;
+    margin-bottom: 5%;
 }
 
 .delivery-type-img {
