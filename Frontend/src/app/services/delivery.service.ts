@@ -66,4 +66,10 @@ export class DeliveryService{
         this.setContents(contents);
     }
 
+    removeItem(item: Item){
+        const contents = this._deliveryInfo().contents;
+        const newContents = contents.filter(i=>i!==item);
+        this.setContents(newContents);
+    }
+
 }
