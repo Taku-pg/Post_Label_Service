@@ -13,7 +13,7 @@
 /Frontend/yarn.lock
 
 # Environment files
-/Frontend/.env
+/Frontend/src/environment/*
 
 # Angular CLI and build artefacts
 /Frontend/.angular-cli.json
