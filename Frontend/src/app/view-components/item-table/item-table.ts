@@ -1,5 +1,7 @@
-import { Component, inject, input, computed } from '@angular/core';
+import { Component, inject, input, computed, output, Signal } from '@angular/core';
 import { DeliveryService } from '../../services/delivery.service';
+import { Item } from '../../models/item.model';
+import { DeliveryModel } from '../../models/delivery.model';
 
 @Component({
   selector: 'app-item-table',
@@ -10,19 +12,19 @@ import { DeliveryService } from '../../services/delivery.service';
 export class ItemTable {
   isReadOnly = input<boolean>(false);
   deliveryService = inject(DeliveryService);
+  items = input<any[]>();
+  removeIndex = output<Item>();
 
 
   totalValues = computed(()=>{
-    const contents = this.deliveryService.deliveryInfo().contents;
-
-    const totalAmount: number = contents.map(i=>i.amount).reduce((acc,crr)=>acc+crr,0);
+    const totalAmount: number = this.items()!.map(i=>i.amount).reduce((acc,crr)=>acc+crr,0);
     
-    const toatlPrice: number = contents.map(i=>{
+    const toatlPrice: number = this.items()!.map(i=>{
       const base: number = i.price*i.amount;
       return Math.floor(base*100)/100
     }).reduce((acc,crr)=>acc+crr,0);
 
-    const totalWeight: number = contents.map(i=>{
+    const totalWeight: number = this.items()!.map(i=>{
       const base = i.weight*i.amount;
       return Math.floor(base*100)/100
     }).reduce((acc,crr)=>acc+crr,0);
@@ -35,9 +37,8 @@ export class ItemTable {
   });
 
   onClickDelete(index: number){
-    const contents = this.deliveryService.deliveryInfo().contents;
-    const targetItem = contents.at(index);
-    this.deliveryService.removeItem(targetItem!);
+    const targetItem = this.items()!.at(index);
+    this.removeIndex.emit(targetItem!);
   }
 
 }

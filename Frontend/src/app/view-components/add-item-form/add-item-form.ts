@@ -16,7 +16,7 @@ export class AddItemForm {
   private deliveryService = inject(DeliveryService);
 
   addItemForm = this._fb.group({
-    productName: ['',Validators.required],
+    productName: ['', Validators.required],
     amount: [0, Validators.required],
     price: [0, Validators.required],
     weight: [0, Validators.required],
@@ -25,8 +25,8 @@ export class AddItemForm {
   })
 
 
-  onClickAdd(){
-    if(this.addItemForm.invalid){
+  onClickAdd() {
+    if (this.addItemForm.invalid) {
       this.addItemForm.markAllAsTouched();
       return;
     }
@@ -34,7 +34,7 @@ export class AddItemForm {
     const formValue = this.addItemForm.value;
 
     const newItem: Item = {
-      productName:  formValue.productName!,
+      productName: formValue.productName!,
       amount: formValue.amount!,
       price: formValue.price!,
       weight: formValue.weight!,
@@ -42,17 +42,15 @@ export class AddItemForm {
       countryOfOrigin: formValue.countryOfOrigin!
     }
 
-    console.log(newItem);
     this.deliveryService.addItem(newItem);
     this.closeDialog();
   }
-  
-  onClickCancel(){
-    //alert('The input information is discrded');
+
+  onClickCancel() {
     this.closeDialog();
   }
 
-  closeDialog(){
+  closeDialog() {
     this._dialog.close();
   }
 }

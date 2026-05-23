@@ -1,4 +1,4 @@
-import { Component, inject, viewChild } from '@angular/core';
+import { Component, computed, inject, viewChild } from '@angular/core';
 import { Progress } from "../../view-components/progress/progress";
 import { ItemTable } from "../../view-components/item-table/item-table";
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -18,10 +18,14 @@ export class ContentInformation {
   private _matDialog = inject(MatDialog); 
   private _router = inject(Router);
   private _deliveryService = inject(DeliveryService);
+  deliveryInfo = this._deliveryService.deliveryInfo;
+  
+  //items = computed(()=>{
+    //return this._deliveryService.deliveryInfo().contents;
+  //})
 
-  receiveNewItem(item: Item){
-    console.log('received');
-    console.log(item);
+  onRemoveItem(item: Item){
+    this._deliveryService.removeItem(item);
   }
 
   onClickAddItem(){

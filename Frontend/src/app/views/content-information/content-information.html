@@ -2,7 +2,7 @@
     <div><app-progress [isTarget]="3"></app-progress></div>
 
     <div class="contents">
-        <app-item-table [isReadOnly]="false"></app-item-table>
+        <app-item-table [isReadOnly]="false" [items]="deliveryInfo().contents" (removeIndex)="onRemoveItem($event)"></app-item-table>
         <div class="add-button-container">
             <button type="button" class="add-button" (click)="onClickAddItem()">Add</button>
         </div>

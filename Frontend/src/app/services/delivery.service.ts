@@ -18,7 +18,7 @@ const DEFAULT_DELIVERY_MOEDL: DeliveryModel = {
 export class DeliveryService{
     private readonly KEY = env.SESSION_KEY;
     private _deliveryInfo = signal<DeliveryModel>(this.load());
-    
+
     readonly deliveryInfo = this._deliveryInfo.asReadonly();
 
     constructor(){
@@ -59,15 +59,13 @@ export class DeliveryService{
     }
 
     addItem(item: Item){
-        const contents = this._deliveryInfo().contents;
-        contents.push(item);
-        this.setContents(contents);
+        this._deliveryInfo.update(curr=>({...curr, contents: [...curr.contents, item]}));
     }
 
     removeItem(item: Item){
         const contents = this._deliveryInfo().contents;
         const newContents = contents.filter(i=>i!==item);
-        this.setContents(newContents);
+        this._deliveryInfo.update(curr=>({...curr, contents: newContents}));
     }
 
 }
