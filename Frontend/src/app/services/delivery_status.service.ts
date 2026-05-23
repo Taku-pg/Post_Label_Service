@@ -40,16 +40,16 @@ export class DeliveryStatusService {
                 street: 's1',
                 city: 'c1',
                 zip: 'z1',
-                country: 'c1'
+                country: 'United States'
             },
             receiverAddress: {
                 street: 's2',
                 city: 'c2',
                 zip: 'z2',
-                country: 'c2'
+                country: 'United States'
             },
-            deliveryOption: 'Express',
-            deliveryPurpose: 'Gift'
+            deliveryOption: 'express',
+            deliveryPurpose: 'gift'
         }
 
         const demoDel: DeliveryModel = {
@@ -61,7 +61,7 @@ export class DeliveryStatusService {
                     price: 100,
                     amount: 2,
                     weight: 0.1,
-                    countryOfOrigin: 'Japan',
+                    countryOfOrigin: 'United States',
                     type: 't1'
                 },
                 {
@@ -69,7 +69,7 @@ export class DeliveryStatusService {
                     price: 100,
                     amount: 2,
                     weight: 0.1,
-                    countryOfOrigin: 'Japan',
+                    countryOfOrigin: 'United States',
                     type: 't1'
                 },
             ]

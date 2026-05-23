@@ -1,6 +1,6 @@
 <div class="delivery-detail">
     <div class="contents">
-        <app-delivery-info-form [isReadOnly]="true" />
+        <app-delivery-info-form [isReadOnly]="true" [deliveryModel]="deliveryStatus().delivery!"/>
         <hr class="border">
         <app-item-table [isReadOnly]="true" [items]="deliveryStatus().delivery?.contents"/>
     </div>

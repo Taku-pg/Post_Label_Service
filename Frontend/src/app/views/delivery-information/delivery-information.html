@@ -2,7 +2,7 @@
     <app-progress [isTarget]="2"></app-progress>
 
     <div class="delivery-info-form">
-        <app-delivery-info-form #formElement></app-delivery-info-form>
+        <app-delivery-info-form #formElement [deliveryModel]="deliveryInfo()"></app-delivery-info-form>
         <div class="delivery-info-button-container">
             <button type="button" class="delivery-info-button" (click)="onClickBack()">Back </button>
             <button type="button" class="delivery-info-button" (click)="onClickNext()">Next </button>

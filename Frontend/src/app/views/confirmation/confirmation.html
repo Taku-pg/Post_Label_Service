@@ -2,7 +2,7 @@
     <app-progress [isTarget]="4"></app-progress>
 
     <div class="confirmation-contents">
-        <app-delivery-info-form [isReadOnly]="true" />
+        <app-delivery-info-form [isReadOnly]="true" [deliveryModel]="deliveryInfo()"/>
         <hr class="border">
         <app-item-table [isReadOnly]="true" [items]="deliveryInfo().contents"/>
 

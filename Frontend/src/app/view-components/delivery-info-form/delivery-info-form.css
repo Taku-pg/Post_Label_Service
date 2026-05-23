@@ -136,3 +136,7 @@
 .purpose-item:checked + .purpose-label::after {
   opacity: 1;
 }
+
+.isReadOnlyRadio{
+    pointer-events: none;
+}

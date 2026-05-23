@@ -18,6 +18,7 @@ export class DeliveryInformation {
   private _router = inject(Router);
   private _matDialog = inject(MatDialog);
   private _deliveryService = inject(DeliveryService);
+  deliveryInfo = this._deliveryService.deliveryInfo;
   formElement = viewChild<DeliveryInfoForm>('formElement');
 
 
