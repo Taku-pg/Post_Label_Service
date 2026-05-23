@@ -1,15 +1,37 @@
 .delivery-overview{
-    height: 61.4vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 5%;
 }
 
+.dlist{
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+}
+
+.dlist dt{
+    font-weight: bold;
+    margin-left: 5%;
+    font-size: 1em;
+}
+
+.dlist dd{
+    margin-left: 1em;
+    font-size: 1em;
+}
+
+.border {
+    border-top: 5px solid rgb(225, 99, 99);
+    width: 80vw;
+}
+
 .delivery-overview table{
    width: 80%;
    border-spacing: 0;
    margin-bottom: 3%;
+   margin-top: 3%;
 }
 
 .delivery-overview table thead tr th:first-child {
@@ -49,6 +71,13 @@
     padding: 0.8em 0.8em 0.8em 0.01em;
 }
 
+.button-container{
+    display: flex;
+    align-self: flex-end;
+    margin-right: 10%;
+    gap: 10%;
+}
+
 
 .detail-button{
     border-radius: 5px;
@@ -68,4 +97,12 @@
 
 .detail-button:hover, .back-button:hover{
     background-color: rgb(193, 64, 64);
+}
+
+@media (max-width: 498px) {
+    .dlist{
+        display: flex;
+        flex-direction: column;
+        gap: 0.1em;
+    }
 }

@@ -6,8 +6,13 @@
                 <label for="tracking-id" class="input-label">Tracking ID</label>
                 <input type="text" placeholder="ex. 123456789" id="tracking-id" class="input-field" required=""
                     [formControl]="trackingIdControl">
-                @if(trackingIdControl.invalid && trackingIdControl.touched){
-                    <h4 class="error">Please input tracking id</h4>
+                @if(trackingIdControl.touched){
+                    @if(trackingIdControl.hasError('required')){
+                        <h4 class="error">Please input tracking id</h4>
+                    }
+                    @if(trackingIdControl.hasError('notFound')){
+                        <h4 class="error">Delivery with given tracking id is not found</h4>
+                    }
                 }
             </div>
             <div class="button-container">
