@@ -2,9 +2,9 @@
     <app-progress [isTarget]="4"></app-progress>
 
     <div class="confirmation-contents">
-        <app-delivery-info-form [isReadOnly]="true"></app-delivery-info-form>
+        <app-delivery-info-form [isReadOnly]="true" />
         <hr class="border">
-        <app-item-table [isReadOnly]="true"></app-item-table>
+        <app-item-table [isReadOnly]="true" [items]="deliveryInfo().contents"/>
 
         <div class="control-button-container">
             <button type="button" class="control-button">Back </button>

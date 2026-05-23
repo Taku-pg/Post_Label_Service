@@ -2,7 +2,7 @@
     <div class="contents">
         <app-delivery-info-form [isReadOnly]="true" />
         <hr class="border">
-        <app-item-table [isReadOnly]="true" />
+        <app-item-table [isReadOnly]="true" [items]="deliveryStatus().delivery?.contents"/>
     </div>
     <button class="back-button" type="button" (click)="onClickBack()">Back</button>
 </div>

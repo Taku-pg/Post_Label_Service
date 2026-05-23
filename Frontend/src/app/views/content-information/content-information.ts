@@ -19,10 +19,7 @@ export class ContentInformation {
   private _router = inject(Router);
   private _deliveryService = inject(DeliveryService);
   deliveryInfo = this._deliveryService.deliveryInfo;
-  
-  //items = computed(()=>{
-    //return this._deliveryService.deliveryInfo().contents;
-  //})
+
 
   onRemoveItem(item: Item){
     this._deliveryService.removeItem(item);

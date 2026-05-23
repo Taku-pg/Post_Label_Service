@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Progress } from "../../view-components/progress/progress";
-import { DeliveryInformation } from "../delivery-information/delivery-information";
-import { ContentInformation } from "../content-information/content-information";
 import { DeliveryInfoForm } from "../../view-components/delivery-info-form/delivery-info-form";
 import { ItemTable } from "../../view-components/item-table/item-table";
+import { DeliveryService } from '../../services/delivery.service';
 
 @Component({
   selector: 'app-confirmation',
@@ -12,5 +11,6 @@ import { ItemTable } from "../../view-components/item-table/item-table";
   styleUrl: './confirmation.css',
 })
 export class Confirmation {
-
+  private _deliveryService = inject(DeliveryService);
+  deliveryInfo = this._deliveryService.deliveryInfo;
 }
