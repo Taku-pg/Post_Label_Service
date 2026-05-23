@@ -1,7 +1,6 @@
 import { Component, inject, input, computed, output, Signal } from '@angular/core';
 import { DeliveryService } from '../../services/delivery.service';
 import { Item } from '../../models/item.model';
-import { DeliveryModel } from '../../models/delivery.model';
 
 @Component({
   selector: 'app-item-table',
@@ -26,7 +25,7 @@ export class ItemTable {
 
     const totalWeight: number = this.items()!.map(i=>{
       const base = i.weight*i.amount;
-      return Math.floor(base*100)/100
+      return base;
     }).reduce((acc,crr)=>acc+crr,0);
 
     return {

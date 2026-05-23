@@ -34,26 +34,30 @@ export class DeliveryStatusService {
                 lastName: 'Smith',
                 email: 'john@gmail.com',
                 phone: '+4827282822',
-                company: null
+                company: null,
+                address: {
+                    street: 's1',
+                    city: 'c1',
+                    zip: 'z1',
+                    country: 'United States'
+                }
             },
-            senderAddress: {
-                street: 's1',
-                city: 'c1',
-                zip: 'z1',
-                country: 'United States'
-            },
-            receiverAddress: {
-                street: 's2',
-                city: 'c2',
-                zip: 'z2',
-                country: 'United States'
+            receiver: {
+                address: {
+                    street: 's2',
+                    city: 'c2',
+                    zip: 'z2',
+                    country: 'United States'
+                },
+                firstName: 'Andy',
+                lastName: 'Sam'
             },
             deliveryOption: 'express',
             deliveryPurpose: 'gift'
         }
 
         const demoDel: DeliveryModel = {
-            deliveryType: 'International',
+            deliveryType: 'international',
             deliveryInfo: demoInfo,
             contents: [
                 {
@@ -78,7 +82,7 @@ export class DeliveryStatusService {
         const demo: DeliveryStatusModel = {
             trackingId: 'abc-1234',
             registeredDate: '2021-01-02',
-            delivery:demoDel,
+            delivery: demoDel,
             deliveryHistory: [
                 {
                     start: '2021-01-02',

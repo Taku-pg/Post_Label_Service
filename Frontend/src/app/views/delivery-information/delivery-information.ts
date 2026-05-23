@@ -29,7 +29,7 @@ export class DeliveryInformation {
       const formData = this.formElement()?.formValue()!;
       const deliveryPurpose = formData.deliveryPurpose;
 
-      if(deliveryPurpose === "sales"){
+      if (deliveryPurpose === "sales") {
         const confirm = await this.callDialog(
           'Caution',
           'This delivery will be imposed addtional tax.\nDo you agree?',
@@ -38,10 +38,10 @@ export class DeliveryInformation {
 
         console.log(confirm);
 
-        if(!confirm!){
+        if (!confirm!) {
           return;
         }
-        
+
       }
 
       const deliveryInfo: DeliveryInfo = this.setValue(formData);
@@ -57,9 +57,9 @@ export class DeliveryInformation {
       'Input information will be discarded.\nAre you sure ?',
       'confirm');
 
-      if (res!) {
-        this._router.navigate(['delivery-type']);
-      }
+    if (res!) {
+      this._router.navigate(['delivery-type']);
+    }
   }
 
 
@@ -70,19 +70,23 @@ export class DeliveryInformation {
         lastName: formData.lastName!,
         email: formData.email!,
         phone: formData.phone!,
-        company: formData.company ?? null
+        company: formData.company ?? null,
+        address: {
+          street: formData.senderStreet!,
+          city: formData.senderCity!,
+          zip: formData.senderZip!,
+          country: formData.senderCountry ?? null
+        }
       },
-      senderAddress: {
-        street: formData.senderStreet!,
-        city: formData.senderCity!,
-        zip: formData.senderZip!,
-        country: formData.senderCountry ?? null,
-      },
-      receiverAddress: {
-        street: formData.receiverStreet!,
-        city: formData.receiverCity!,
-        zip: formData.receiverZip!,
-        country: formData.receiverCountry ?? null,
+      receiver: {
+        firstName: formData.receiverFirstName,
+        lastName: formData.receiverLastName,
+        address: {
+          street: formData.receiverStreet!,
+          city: formData.receiverCity!,
+          zip: formData.receiverZip!,
+          country: formData.receiverCountry ?? null,
+        }
       },
       deliveryOption: formData.deliveryOption!,
       deliveryPurpose: formData.deliveryPurpose ?? null
@@ -90,7 +94,7 @@ export class DeliveryInformation {
     return deliveryInfo;
   }
 
-  async callDialog(title: String, message: string, type: string){
+  async callDialog(title: String, message: string, type: string) {
     const dialogConfig = new MatDialogConfig;
     dialogConfig.height = '35%';
     dialogConfig.width = '40%';

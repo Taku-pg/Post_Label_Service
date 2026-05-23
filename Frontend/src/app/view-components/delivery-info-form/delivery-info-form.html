@@ -19,8 +19,8 @@
 
         <div class="form-item">
             <label for="compane-name" class="u-label">Company Name </label>
-            <input type="text" placeholder="{{isReadOnly() ? '' : 'Company Name'}}"  id="company-name" class="input-field"
-                [readOnly]="isReadOnly()" formControlName="company">
+            <input type="text" placeholder="{{isReadOnly() ? '' : 'Company Name'}}" id="company-name"
+                class="input-field" [readOnly]="isReadOnly()" formControlName="company">
         </div>
 
         <div class="form-item">
@@ -79,7 +79,20 @@
     </div>
 
     <div class="form-content">
-        <p class="info-header">Receiver Address </p>
+        <p class="info-header">Receiver Information </p>
+        <div class="sender-info-name">
+            <div class="name-form">
+                <label for="first-name" class="name-label">First Name</label>
+                <input type="text" placeholder="Enter reciver First Name" id="first-name" class="input-field"
+                    required="" [readOnly]="isReadOnly()" formControlName="receiverFirstName">
+            </div>
+
+            <div class="name-form">
+                <label for="last-name" class="name-label">Last Name</label>
+                <input type="text" placeholder="Enter reciver Last Name" id="last-name" class="input-field" required=""
+                    [readOnly]="isReadOnly()" formControlName="receiverLastName">
+            </div>
+        </div>
         <div class="form-item">
             <label for="receiver-street" class="u-label">Street</label>
             <input type="text" placeholder="Enter your street" id="receiver-street" class="input-field" required

@@ -16,16 +16,13 @@ export class DeliveryInfoForm {
 
   isInternational = computed(()=>{
     console.log(this.deliveryModel());
-    return this.deliveryModel()!.deliveryType === 'International';
+    return this.deliveryModel()!.deliveryType === 'international';
   });
-  senderInfo = computed(()=>{
+  sender = computed(()=>{
       return this.deliveryModel()!.deliveryInfo?.sender;
   });
-  senderAddress = computed(()=>{
-      return this.deliveryModel()!.deliveryInfo?.senderAddress;
-  });
-  receiverAddress = computed(()=>{
-      return this.deliveryModel()!.deliveryInfo?.receiverAddress;
+  receiver = computed(()=>{
+      return this.deliveryModel()!.deliveryInfo?.receiver;
   });
   deliveryOption = computed(()=>{
     return this.deliveryModel()!.deliveryInfo?.deliveryOption;
@@ -33,31 +30,32 @@ export class DeliveryInfoForm {
   deliveryPurpose = computed(()=>{
     return this.deliveryModel()!.deliveryInfo?.deliveryPurpose;
   });
-  //deliveryInfo = this._deliveryService.deliveryInfo().deliveryInfo;
   
 
 
   deliveryInfoForm =computed(()=>{
     console.log(this.deliveryOption());
     return this._fb.group({
-    firstName: [this.senderInfo()?.firstName, Validators.required],
-    lastName: [this.senderInfo()?.lastName, Validators.required],
-    email: [this.senderInfo()?.email, [Validators.required, Validators.email]],
-    phone: [this.senderInfo()?.phone, Validators.required],
-    company: [this.senderInfo()?.company],
-    senderStreet: [this.senderAddress()?.street, Validators.required],
-    senderCity: [this.senderAddress()?.city, Validators.required],
-    senderZip: [this.senderAddress()?.zip, Validators.required],
-    senderCountry: [this.senderAddress()?.country ?? ''],
-    receiverStreet: [this.receiverAddress()?.street, Validators.required],
-    receiverCity: [this.receiverAddress()?.city, Validators.required],
-    receiverZip: [this.receiverAddress()?.zip, Validators.required],
-    receiverCountry: [this.receiverAddress()?.country ?? ''],
+    firstName: [this.sender()?.firstName, Validators.required],
+    lastName: [this.sender()?.lastName, Validators.required],
+    email: [this.sender()?.email, [Validators.required, Validators.email]],
+    phone: [this.sender()?.phone, Validators.required],
+    company: [this.sender()?.company],
+    senderStreet: [this.sender()?.address.street, Validators.required],
+    senderCity: [this.sender()?.address.city, Validators.required],
+    senderZip: [this.sender()?.address.zip, Validators.required],
+    senderCountry: [this.sender()?.address.country ?? ''],
+    receiverFirstName: [this.receiver()?.firstName, Validators.required],
+    receiverLastName: [this.receiver()?.lastName, Validators.required],
+    receiverStreet: [this.receiver()?.address.street, Validators.required],
+    receiverCity: [this.receiver()?.address.city, Validators.required],
+    receiverZip: [this.receiver()?.address.zip, Validators.required],
+    receiverCountry: [this.receiver()?.address.country ?? ''],
     deliveryOption: [
-      this.deliveryOption() ?? 'Standard', 
+      this.deliveryOption() ?? 'standard', 
       Validators.required],
     deliveryPurpose: [
-      this.deliveryPurpose() ??'Gift', 
+      this.deliveryPurpose() ??'gift', 
       ]
   })
   }) 

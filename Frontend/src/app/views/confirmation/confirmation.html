@@ -7,8 +7,8 @@
         <app-item-table [isReadOnly]="true" [items]="deliveryInfo().contents"/>
 
         <div class="control-button-container">
-            <button type="button" class="control-button">Back </button>
-            <button type="button" class="control-button">Confirm </button>
+            <button type="button" class="control-button" (click)="onClickBack()">Back </button>
+            <button type="button" class="control-button" (click)="onClickConfirm()">Confirm </button>
         </div>
     </div>
 </div>

@@ -1,7 +1,6 @@
 export interface DeliveryInfo{
     sender: Sender,
-    senderAddress: Address,
-    receiverAddress: Address,
+    receiver: Receiver,
     deliveryOption: string,
     deliveryPurpose: string|null
 }
@@ -11,7 +10,14 @@ interface Sender{
     lastName: string,
     email: string,
     phone: string,
-    company: string|null
+    company: string|null,
+    address: Address
+}
+
+interface Receiver{
+    firstName: string,
+    lastName: string,
+    address: Address
 }
 
 interface Address{
