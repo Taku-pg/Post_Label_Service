@@ -3,6 +3,7 @@ import { effect, Injectable, signal } from "@angular/core";
 import { type DeliveryModel } from "../models/delivery.model";
 import { type Item } from "../models/item.model";
 import { type DeliveryInfo } from "../models/deliveryInfo.model";
+import { DeliveryStatusModel } from "../models/delivery_status.model";
 
 
 const DEFAULT_DELIVERY_MOEDL: DeliveryModel = {
@@ -17,7 +18,7 @@ const DEFAULT_DELIVERY_MOEDL: DeliveryModel = {
 export class DeliveryService{
     private readonly KEY = env.SESSION_KEY;
     private _deliveryInfo = signal<DeliveryModel>(this.load());
-
+    
     readonly deliveryInfo = this._deliveryInfo.asReadonly();
 
     constructor(){
@@ -41,11 +42,7 @@ export class DeliveryService{
     }
     
     reset(){
-        this._deliveryInfo.set({
-            deliveryType:null,
-            deliveryInfo:null,
-            contents: []
-        });
+        this._deliveryInfo.set(DEFAULT_DELIVERY_MOEDL);
     }
 
     setDeliveryType(deliveryType: string){
