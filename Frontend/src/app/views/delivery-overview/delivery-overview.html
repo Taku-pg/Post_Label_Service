@@ -2,27 +2,30 @@
     <h2>Delivery information</h2>
     <dl class="dlist">
         <dt>Tracking ID:</dt>
-        <dd>12345</dd>
+        <dd>{{trackingId}}</dd>
         <dt>Delivery Type:</dt>
-        <dd>International</dd>
+        <dd>{{deliveryType}}</dd>
         <dt>Registered Date:</dt>
-        <dd>2021-05-01</dd>
+        <dd>{{registeredDate}}</dd>
     </dl>
     <hr class="border">
     <table>
         <thead>
             <tr>
-                <th></th>
-                <th></th>
+                <th>Start date</th>
+                <th>End date</th>
                 <th>Status</th>
             </tr>
         </thead>
         <tbody>
+            @for (history of deliveryStatus.deliveryHistory; track $index) {
             <tr>
-                <td>2021-05-09</td>
-                <td>2021-05-10</td>
-                <td>Pending</td>
+                <td>{{history.start}}</td>
+                <td>{{history.end}}</td>
+                <td>{{history.status}}</td>
             </tr>
+            }
+
         </tbody>
     </table>
 
