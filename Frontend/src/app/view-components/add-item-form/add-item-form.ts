@@ -17,9 +17,9 @@ export class AddItemForm {
 
   addItemForm = this._fb.group({
     productName: ['', Validators.required],
-    amount: [0, Validators.required],
-    price: [0, Validators.required],
-    weight: [0, Validators.required],
+    amount: [0, [Validators.required,Validators.min(1)]],
+    price: [0, [Validators.required,Validators.min(1)]],
+    weight: [0, [Validators.required,Validators.min(0.001)]],
     type: ['', Validators.required],
     countryOfOrigin: ['']
   })

@@ -5,25 +5,51 @@
             <label for="product-name" class="input-label">Product Name</label>
             <input type="text" placeholder="Enter Product Name" id="product-name" name="product-name"
                 class="input-field" required="" formControlName="productName">
+            @if(addItemForm.get('productName')?.touched){
+            @if(addItemForm.get('productName')?.hasError('required') ){
+            <small class="error">Enter product name</small>
+            }
+            }
         </div>
 
         <div class="number-inputs">
             <div class="input-item">
                 <label for="amount" class="input-label">Amount</label>
                 <input type="number" id="amount" name="amount" class="input-field" required="" min="1"
-                formControlName="amount">
+                    formControlName="amount">
+                @if(addItemForm.get('amount')?.touched){
+                @if(addItemForm.get('amount')?.hasError('required') ){
+                <small class="error">Enter amount of product</small>
+                }@else if (addItemForm.get('amount')?.hasError('min')) {
+                <small class="error">Minimum amount is 1</small>                   
+                }
+                }
             </div>
 
             <div class="input-item">
                 <label for="price" class="input-label">Price</label>
                 <input type="number" id="price" name="price" class="input-field" required="" min="1"
-                formControlName="price">
+                    formControlName="price">
+                @if(addItemForm.get('price')?.touched){
+                @if(addItemForm.get('price')?.hasError('required') ){
+                <small class="error">Enter unit price of product</small>
+                }@else if (addItemForm.get('price')?.hasError('min')) {
+                <small class="error">Minimum price is 1</small>
+                }
+                }
             </div>
 
             <div class="input-item">
                 <label for="weight" class="input-label">Weight(kg)</label>
                 <input type="number" id="weight" name="weight" class="input-field" required="" step="0.001" min="0.001"
-                formControlName="weight">
+                    formControlName="weight">
+                @if(addItemForm.get('weight')?.touched){
+                @if(addItemForm.get('weight')?.hasError('required') ){
+                <small class="error">Enter unit weight</small>
+                }@else if (addItemForm.get('weight')?.hasError('min')) {
+                <small class="error">Minimum weight is 0.001</small>
+                }
+                }
             </div>
         </div>
 
@@ -33,6 +59,11 @@
                 <option value="" disabled hidden selected>Select Item Type</option>
                 <option value="food">Food</option>
             </select>
+            @if(addItemForm.get('type')?.touched){
+            @if(addItemForm.get('type')?.hasError('required') ){
+            <small class="error">Choose product type</small>
+            }
+            }
         </div>
 
         <div class="input-item">

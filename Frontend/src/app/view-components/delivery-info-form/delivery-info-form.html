@@ -8,12 +8,24 @@
                 <label for="first-name" class="name-label">First Name</label>
                 <input type="text" placeholder="Enter your First Name" id="first-name" class="input-field" required=""
                     [readOnly]="isReadOnly()" formControlName="firstName">
+                @if(deliveryInfoForm().get('firstName')?.touched){
+                @if(deliveryInfoForm().get('firstName')?.hasError('required') ){
+                <small class="error">First Name is required</small>
+                }
+                }
+
             </div>
 
             <div class="name-form">
                 <label for="last-name" class="name-label">Last Name</label>
                 <input type="text" placeholder="Enter your Last Name" id="last-name" class="input-field" required=""
                     [readOnly]="isReadOnly()" formControlName="lastName">
+                @if(deliveryInfoForm().get('lastName')?.touched){
+                @if(deliveryInfoForm().get('lastName')?.hasError('required') ){
+                <small class="error">Last Name is required</small>
+                }
+                }
+
             </div>
         </div>
 
@@ -27,6 +39,14 @@
             <label for="email" class="">Email</label>
             <input type="email" placeholder="Enter a valid email address" id="email" class="input-field" required=""
                 [readOnly]="isReadOnly()" formControlName="email">
+            @if(deliveryInfoForm().get('email')?.touched){
+            @if(deliveryInfoForm().get('email')?.hasError('required') ){
+            <small class="error">Email is required</small>
+            }@else if (deliveryInfoForm().get('email')?.hasError('pattern')) {
+            <small class="error">Invalid email address</small>
+            }
+
+            }
         </div>
 
 
@@ -36,6 +56,13 @@
                 pattern="\+?\d{0,3}[\s\(\-]?([0-9]{2,3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})"
                 placeholder="Enter your phone (e.g. +14155552675)" id="phone" class="input-field" required=""
                 [readOnly]="isReadOnly()" formControlName="phone">
+            @if(deliveryInfoForm().get('phone')?.touched){
+            @if(deliveryInfoForm().get('phone')?.hasError('required') ){
+            <small class="error">Phone number is required</small>
+            }@else if (deliveryInfoForm().get('phone')?.hasError('pattern')) {
+            <small class="error">Invalid phone number</small>
+            }
+            }
         </div>
 
 
@@ -47,6 +74,11 @@
             <label for="sender-street" class="u-label">Street</label>
             <input type="text" placeholder="Enter your street" id="sender-street" class="input-field" required
                 [readOnly]="isReadOnly()" formControlName="senderStreet">
+            @if(deliveryInfoForm().get('senderStreet')?.touched){
+            @if(deliveryInfoForm().get('senderStreet')?.hasError('required') ){
+            <small class="error">Street is required</small>
+            }
+            }
         </div>
 
         <div class="city-zip">
@@ -54,12 +86,22 @@
                 <label for="sender-city" class="u-label">City</label>
                 <input type="text" placeholder="Enter your city" id="sender-city" class="input-field"
                     [readOnly]="isReadOnly()" formControlName="senderCity">
+                @if(deliveryInfoForm().get('senderCity')?.touched){
+                @if(deliveryInfoForm().get('senderCity')?.hasError('required') ){
+                <small class="error">City name is required</small>
+                }
+                }
             </div>
 
             <div class="form-item">
                 <label for="sender-zip" class="u-label">Zip</label>
                 <input type="text" placeholder="Enter your zip" id="sender-zip" class="input-field"
                     [readOnly]="isReadOnly()" formControlName="senderZip">
+                @if(deliveryInfoForm().get('senderZip')?.touched){
+                @if(deliveryInfoForm().get('senderZip')?.hasError('required') ){
+                <small class="error">Zip code is required</small>
+                }
+                }
             </div>
         </div>
 
@@ -71,6 +113,11 @@
                 <option value="" disabled hidden>Select Country</option>
                 <option value="United States">United States</option>
             </select>
+            @if(deliveryInfoForm().get('senderCountry')?.touched){
+            @if(deliveryInfoForm().get('senderCountry')?.hasError('required') ){
+            <small class="error">Country is required</small>
+            }
+            }
         </div>
         }
 
@@ -85,18 +132,33 @@
                 <label for="first-name" class="name-label">First Name</label>
                 <input type="text" placeholder="Enter reciver First Name" id="first-name" class="input-field"
                     required="" [readOnly]="isReadOnly()" formControlName="receiverFirstName">
+                @if(deliveryInfoForm().get('receiverFirstName')?.touched){
+                @if(deliveryInfoForm().get('receiverFirstName')?.hasError('required') ){
+                <small class="error">First Name is required</small>
+                }
+                }
             </div>
 
             <div class="name-form">
                 <label for="last-name" class="name-label">Last Name</label>
                 <input type="text" placeholder="Enter reciver Last Name" id="last-name" class="input-field" required=""
                     [readOnly]="isReadOnly()" formControlName="receiverLastName">
+                @if(deliveryInfoForm().get('receiverLastName')?.touched){
+                @if(deliveryInfoForm().get('receiverLastName')?.hasError('required') ){
+                <small class="error">Last Name is required</small>
+                }
+                }
             </div>
         </div>
         <div class="form-item">
             <label for="receiver-street" class="u-label">Street</label>
             <input type="text" placeholder="Enter your street" id="receiver-street" class="input-field" required
                 [readOnly]="isReadOnly()" formControlName="receiverStreet">
+            @if(deliveryInfoForm().get('receiverStreet')?.touched){
+            @if(deliveryInfoForm().get('receiverStreet')?.hasError('required') ){
+            <small class="error">Street is required</small>
+            }
+            }
         </div>
 
         <div class="city-zip">
@@ -104,12 +166,22 @@
                 <label for="receiver-city" class="u-label">City</label>
                 <input type="text" placeholder="Enter your city" id="receiver-city" class="input-field"
                     [readOnly]="isReadOnly()" formControlName="receiverCity">
+                @if(deliveryInfoForm().get('receiverCity')?.touched){
+                @if(deliveryInfoForm().get('receiverCity')?.hasError('required') ){
+                <small class="error">City name is required</small>
+                }
+                }
             </div>
 
             <div class="form-item">
                 <label for="receiver-zip" class="u-label">Zip</label>
                 <input type="text" placeholder="Enter your zip" id="receiver-zip" class="input-field"
                     [readOnly]="isReadOnly()" formControlName="receiverZip">
+                @if(deliveryInfoForm().get('receiverZip')?.touched){
+                @if(deliveryInfoForm().get('receiverZip')?.hasError('required') ){
+                <small class="error">Zip code is required</small>
+                }
+                }
             </div>
         </div>
 
@@ -121,6 +193,11 @@
                 <option value="" disabled hidden>Select Country</option>
                 <option value="United States">United States</option>
             </select>
+            @if(deliveryInfoForm().get('receiverCountry')?.touched){
+            @if(deliveryInfoForm().get('receiverCountry')?.hasError('required') ){
+            <small class="error">Country is required</small>
+            }
+            }
         </div>
         }
 
@@ -154,6 +231,27 @@
             <input id="sales" type="radio" value="sales" class="purpose-item" formControlName="deliveryPurpose"
                 [readOnly]="isReadOnly()">
             <label class="purpose-label" for="sales">Sales of goods</label>
+        </div>
+    </div>
+
+    <div class="delivery-purpose">
+        <label class="info-header">Return method</label>
+        <div class="delivery-option-item" [class.isReadOnlyRadio]="isReadOnly()">
+            <input id="same" type="radio" value="same" class="return-method-item" formControlName="returnMethod"
+                [readOnly]="isReadOnly()">
+            <label class="return-method-label" for="same">Return same way</label>
+        </div>
+
+        <div class="delivery-option-item" [class.isReadOnlyRadio]="isReadOnly()">
+            <input id="cheap" type="radio" value="cheap" class="return-method-item" formControlName="returnMethod"
+                [readOnly]="isReadOnly()">
+            <label class="return-method-label" for="cheap">Return with the cheapest way</label>
+        </div>
+
+        <div class="delivery-option-item" [class.isReadOnlyRadio]="isReadOnly()">
+            <input id="discard" type="radio" value="discard" class="return-method-item" formControlName="returnMethod"
+                [readOnly]="isReadOnly()">
+            <label class="return-method-label" for="discard">Discard</label>
         </div>
     </div>
     }

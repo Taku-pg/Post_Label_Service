@@ -68,3 +68,7 @@
 .add-button:hover, .cancel-button:hover{
     background-color: rgb(193, 64, 64);
 }
+
+.error{
+    color: red;
+}

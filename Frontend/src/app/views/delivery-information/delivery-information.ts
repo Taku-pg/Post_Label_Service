@@ -24,6 +24,7 @@ export class DeliveryInformation {
 
   async onClickNext() {
     const isValid = this.formElement()?.validate();
+    console.log(isValid);
 
     if (isValid) {
       const formData = this.formElement()?.formValue()!;
@@ -70,12 +71,12 @@ export class DeliveryInformation {
         lastName: formData.lastName!,
         email: formData.email!,
         phone: formData.phone!,
-        company: formData.company ?? null,
+        company: formData.company,
         address: {
           street: formData.senderStreet!,
           city: formData.senderCity!,
           zip: formData.senderZip!,
-          country: formData.senderCountry ?? null
+          country: formData.senderCountry,
         }
       },
       receiver: {
@@ -85,11 +86,12 @@ export class DeliveryInformation {
           street: formData.receiverStreet!,
           city: formData.receiverCity!,
           zip: formData.receiverZip!,
-          country: formData.receiverCountry ?? null,
+          country: formData.receiverCountry,
         }
       },
       deliveryOption: formData.deliveryOption!,
-      deliveryPurpose: formData.deliveryPurpose ?? null
+      deliveryPurpose: formData.deliveryPurpose,
+      returnMethod: formData.returnMethod,
     }
     return deliveryInfo;
   }

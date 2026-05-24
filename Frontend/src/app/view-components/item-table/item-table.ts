@@ -23,10 +23,12 @@ export class ItemTable {
       return Math.floor(base*100)/100
     }).reduce((acc,crr)=>acc+crr,0);
 
-    const totalWeight: number = this.items()!.map(i=>{
+    const totalWeightNum: number = this.items()!.map(i=>{
       const base = i.weight*i.amount;
-      return base;
+      return Math.floor(base*1000)/1000;
     }).reduce((acc,crr)=>acc+crr,0);
+
+    const totalWeight = totalWeightNum.toFixed(3);
 
     return {
       toatlPrice: toatlPrice,

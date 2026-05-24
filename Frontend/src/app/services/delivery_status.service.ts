@@ -53,7 +53,8 @@ export class DeliveryStatusService {
                 lastName: 'Sam'
             },
             deliveryOption: 'express',
-            deliveryPurpose: 'gift'
+            deliveryPurpose: 'gift',
+            returnMethod: 'cheap'
         }
 
         const demoDel: DeliveryModel = {

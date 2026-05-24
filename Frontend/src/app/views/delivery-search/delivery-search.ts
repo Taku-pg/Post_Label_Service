@@ -34,7 +34,7 @@ export class DeliverySearch implements OnInit{
 
     this._apiService.getDeliveryByTrackingId(trackingId!).subscribe({
       next: (res)=>{
-
+        this._router.navigate(['delivery-overview']);
       },
       error: ()=>{
         this.setNotFoundError();
