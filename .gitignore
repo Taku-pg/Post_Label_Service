@@ -37,3 +37,42 @@ yarn-error.log*
 
 #IDEs
 .idea/
+
+
+/Backend/HELP.md
+.gradle
+/Backend/build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+/Backend/bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+Backend/out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/Backend/nbproject/private/
+/Backend/nbbuild/
+/Backend/dist/
+/Backend/nbdist/
+/Backend/.nb-gradle/
+
+### VS Code ###
+.vscode/
