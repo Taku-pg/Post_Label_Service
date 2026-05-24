@@ -111,7 +111,9 @@
             <select id="sender-country" class="select-field" required formControlName="senderCountry"
                 [style.pointer-events]="isReadOnly() ? 'none' : 'auto'" [attr.tabindex]="isReadOnly() ? -1 : 0">
                 <option value="" disabled hidden>Select Country</option>
-                <option value="United States">United States</option>
+                @for(country of countries(); track $index ){
+                <option value="country.name.common">{{country.name.common}}</option>
+                }
             </select>
             @if(deliveryInfoForm().get('senderCountry')?.touched){
             @if(deliveryInfoForm().get('senderCountry')?.hasError('required') ){
@@ -191,7 +193,10 @@
             <select id="receiver-country" class="select-field" required formControlName="receiverCountry"
                 [style.pointer-events]="isReadOnly() ? 'none' : 'auto'" [attr.tabindex]="isReadOnly() ? -1 : 0">
                 <option value="" disabled hidden>Select Country</option>
-                <option value="United States">United States</option>
+
+                @for(country of countries(); track $index ){
+                <option value="country.name.common">{{country.name.common}}</option>
+                }
             </select>
             @if(deliveryInfoForm().get('receiverCountry')?.touched){
             @if(deliveryInfoForm().get('receiverCountry')?.hasError('required') ){

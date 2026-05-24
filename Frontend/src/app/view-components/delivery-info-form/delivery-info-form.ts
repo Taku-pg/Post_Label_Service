@@ -1,6 +1,7 @@
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, inject, input, Signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { type DeliveryModel } from '../../models/delivery.model';
+import { CountryListService } from '../../services/country-list.service';
 
 @Component({
   selector: 'app-delivery-info-form',
@@ -10,9 +11,15 @@ import { type DeliveryModel } from '../../models/delivery.model';
 })
 export class DeliveryInfoForm {
   private _fb = inject(FormBuilder);
+  private _countryListService = inject(CountryListService);
   deliveryModel = input.required<DeliveryModel>();
   isReadOnly = input<boolean>(false);
 
+  countries = computed(()=>{
+    console.log(this._countryListService.countries());
+    return this._countryListService.countries()?.sort(
+      (a,b)=>a.name.common.localeCompare(b.name.common));
+  })
   isInternational = computed(() => {
     console.log(this.deliveryModel());
     return this.deliveryModel().deliveryType === 'international';
@@ -69,9 +76,10 @@ export class DeliveryInfoForm {
         this.returnMethod() ?? 'same'
       ]
     })
-  })
+  });
 
   validate(): boolean {
+    console.log(this.countries())
     if (this.deliveryInfoForm().invalid) {
       this.deliveryInfoForm().markAllAsTouched();
       return false;
