@@ -2,7 +2,8 @@ export interface DeliveryInfo{
     sender: Sender,
     receiver: Receiver,
     deliveryOption: string,
-    deliveryPurpose: string|null
+    deliveryPurpose: string|null,
+    returnMethod: string|null
 }
 
 interface Sender{
