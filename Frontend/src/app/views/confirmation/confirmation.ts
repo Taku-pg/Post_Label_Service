@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { Progress } from "../../view-components/progress/progress";
 import { DeliveryInfoForm } from "../../view-components/delivery-info-form/delivery-info-form";
 import { ItemTable } from "../../view-components/item-table/item-table";
@@ -15,12 +15,19 @@ export class Confirmation {
   private _router = inject(Router);
   private _deliveryService = inject(DeliveryService);
   deliveryInfo = this._deliveryService.deliveryInfo;
+  isInternational = computed(()=>{
+    return this.deliveryInfo().deliveryType === 'international'
+  })
 
   onClickConfirm(){
     console.log(this.deliveryInfo());
   }
 
   onClickBack(){
-    this._router.navigate(['contents']);
+    if(this.isInternational()){
+      this._router.navigate(['contents']);
+      return;
+    }
+    this._router.navigate(['delivery-info']);
   }
 }

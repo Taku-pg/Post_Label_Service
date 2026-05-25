@@ -5,6 +5,11 @@
     align-items: center;
 }
 
+.confirmation-header{
+    align-self: flex-start;
+    margin-left: 10%;
+}
+
 .border {
     border-top: 5px solid rgb(225, 99, 99);
     width: 80vw;

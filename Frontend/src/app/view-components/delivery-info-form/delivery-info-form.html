@@ -132,7 +132,7 @@
         <div class="sender-info-name">
             <div class="name-form">
                 <label for="first-name" class="name-label">First Name</label>
-                <input type="text" placeholder="Enter reciver First Name" id="first-name" class="input-field"
+                <input type="text" placeholder="Enter receiver First Name" id="first-name" class="input-field"
                     required="" [readOnly]="isReadOnly()" formControlName="receiverFirstName">
                 @if(deliveryInfoForm().get('receiverFirstName')?.touched){
                 @if(deliveryInfoForm().get('receiverFirstName')?.hasError('required') ){
@@ -207,6 +207,19 @@
         }
 
     </div>
+
+    @if(!isInternational()){
+    <div class="type-input">
+        @if(isReadOnly()){
+        <label for="item-type">Type of Item</label>
+        }@else {
+        <label for="item-type">Enter Type of Item (The main one)</label>
+        }
+
+        <input type="text" id="item-type" required class="input-field" formControlName="itemType"
+            [readOnly]="isReadOnly()">
+    </div>
+    }
 
     <div class="delivery-option">
         <label class="info-header">Delivery Option</label>

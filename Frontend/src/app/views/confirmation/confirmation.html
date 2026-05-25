@@ -1,10 +1,14 @@
 <div class="confirmation">
     <app-progress [isTarget]="4"></app-progress>
+    <h1 class="confirmation-header">Confirmation</h1>
+
 
     <div class="confirmation-contents">
-        <app-delivery-info-form [isReadOnly]="true" [deliveryModel]="deliveryInfo()"/>
+        <app-delivery-info-form [isReadOnly]="true" [deliveryModel]="deliveryInfo()" />
         <hr class="border">
-        <app-item-table [isReadOnly]="true" [items]="deliveryInfo().contents"/>
+        @if(isInternational()){
+        <app-item-table [isReadOnly]="true" [items]="deliveryInfo().contents" />
+        }
 
         <div class="control-button-container">
             <button type="button" class="control-button" (click)="onClickBack()">Back </button>

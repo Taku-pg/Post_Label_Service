@@ -24,11 +24,18 @@ export class DeliveryInformation {
 
   async onClickNext() {
     const isValid = this.formElement()?.validate();
-    console.log(isValid);
 
     if (isValid) {
       const formData = this.formElement()?.formValue()!;
       const deliveryPurpose = formData.deliveryPurpose;
+
+      if (this.deliveryInfo().deliveryType === 'domestic') {
+        const deliveryInfo: DeliveryInfo = this.setValue(formData);
+
+        this._deliveryService.setDeliveryInfo(deliveryInfo);
+        this._router.navigate(['confirmation']);
+        return;
+      }
 
       if (deliveryPurpose === "sales") {
         const confirm = await this.callDialog(
@@ -37,12 +44,9 @@ export class DeliveryInformation {
           'confirm'
         );
 
-        console.log(confirm);
-
         if (!confirm!) {
           return;
         }
-
       }
 
       const deliveryInfo: DeliveryInfo = this.setValue(formData);
@@ -89,6 +93,7 @@ export class DeliveryInformation {
           country: formData.receiverCountry,
         }
       },
+      itemType: formData.itemType,
       deliveryOption: formData.deliveryOption!,
       deliveryPurpose: formData.deliveryPurpose,
       returnMethod: formData.returnMethod,

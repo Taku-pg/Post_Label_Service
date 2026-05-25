@@ -52,6 +52,7 @@ export class DeliveryStatusService {
                 firstName: 'Andy',
                 lastName: 'Sam'
             },
+            itemType: null,
             deliveryOption: 'express',
             deliveryPurpose: 'gift',
             returnMethod: 'cheap'

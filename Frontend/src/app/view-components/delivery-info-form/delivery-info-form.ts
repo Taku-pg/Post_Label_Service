@@ -16,12 +16,10 @@ export class DeliveryInfoForm {
   isReadOnly = input<boolean>(false);
 
   countries = computed(()=>{
-    console.log(this._countryListService.countries());
     return this._countryListService.countries()?.sort(
       (a,b)=>a.name.common.localeCompare(b.name.common));
   })
   isInternational = computed(() => {
-    console.log(this.deliveryModel());
     return this.deliveryModel().deliveryType === 'international';
   });
   sender = computed(() => {
@@ -30,6 +28,9 @@ export class DeliveryInfoForm {
   receiver = computed(() => {
     return this.deliveryModel().deliveryInfo?.receiver;
   });
+  itemType = computed(()=>{
+    return this.deliveryModel().deliveryInfo?.itemType;
+  })
   deliveryOption = computed(() => {
     return this.deliveryModel().deliveryInfo?.deliveryOption;
   });
@@ -44,8 +45,8 @@ export class DeliveryInfoForm {
   phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
 
-  //next: add validation
-  //select option
+  //domestic doesn't have table page and table in confirm, handle directly change to confirm
+  //tax free handling, create type with is tax free field for type class
   //api logic
 
   deliveryInfoForm = computed(() => {
@@ -59,13 +60,14 @@ export class DeliveryInfoForm {
       senderStreet: [this.sender()?.address.street, Validators.required],
       senderCity: [this.sender()?.address.city, Validators.required],
       senderZip: [this.sender()?.address.zip, Validators.required],
-      senderCountry: [this.sender()?.address.country ?? ''],
+      senderCountry: [this.sender()?.address.country],
       receiverFirstName: [this.receiver()?.firstName, Validators.required],
       receiverLastName: [this.receiver()?.lastName, Validators.required],
       receiverStreet: [this.receiver()?.address.street, Validators.required],
       receiverCity: [this.receiver()?.address.city, Validators.required],
       receiverZip: [this.receiver()?.address.zip, Validators.required],
-      receiverCountry: [this.receiver()?.address.country ?? ''],
+      receiverCountry: [this.receiver()?.address.country],
+      itemType: [this.itemType()],
       deliveryOption: [
         this.deliveryOption() ?? 'standard',
         Validators.required],
