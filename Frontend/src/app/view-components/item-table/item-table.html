@@ -22,7 +22,7 @@
                 <td>{{item.price}}</td>
                 <td>{{item.weight}}</td>
                 <td>{{item.countryOfOrigin}}</td>
-                <td>{{item.type}}</td>
+                <td>{{item.type.type}}</td>
                 @if (!isReadOnly()) {
                     <td><button type="button" class="delete-button" (click)="onClickDelete($index)">delete</button></td>
                 }

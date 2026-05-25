@@ -3,7 +3,8 @@ import { Progress } from "../../view-components/progress/progress";
 import { ItemTable } from "../../view-components/item-table/item-table";
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddItemForm } from '../../view-components/add-item-form/add-item-form';
-import { Item } from '../../models/item.model';
+import { type Item } from '../../models/item.model';
+import { type Type } from '../../models/type.model';
 import { Router } from '@angular/router';
 import { DeliveryService } from '../../services/delivery.service';
 import { ConfirmDialog } from '../../view-components/confirm-dialog/confirm-dialog';
@@ -15,17 +16,17 @@ import { ConfirmDialog } from '../../view-components/confirm-dialog/confirm-dial
   styleUrl: './content-information.css',
 })
 export class ContentInformation {
-  private _matDialog = inject(MatDialog); 
+  private _matDialog = inject(MatDialog);
   private _router = inject(Router);
   private _deliveryService = inject(DeliveryService);
   deliveryInfo = this._deliveryService.deliveryInfo;
 
 
-  onRemoveItem(item: Item){
+  onRemoveItem(item: Item) {
     this._deliveryService.removeItem(item);
   }
 
-  onClickAddItem(){
+  onClickAddItem() {
     const dialogConfig = new MatDialogConfig;
     dialogConfig.height = '70%';
     dialogConfig.width = '80%';
@@ -33,29 +34,41 @@ export class ContentInformation {
     const modalDialog = this._matDialog.open(AddItemForm, dialogConfig);
   }
 
-  onClickBack(){
+  onClickBack() {
     this._router.navigate(['delivery-info']);
   }
 
-  onClickNext(){
+  onClickNext() {
     const contents = this._deliveryService.deliveryInfo().contents;
-    if(contents.length === 0){
-      this.callDialog();
+    if (contents.length === 0) {
+      this.callDialog(
+        'No Item',
+        'Please input at least 1 item',
+        'ok');
       return;
     }
+
+    if (contents.find(c => !c.type.taxFree)) {
+      this.callDialog(
+        'Caution',
+        'This delivery will be imposed addtional tax.\nDo you agree?',
+        'confirm');
+      return;
+    }
+
     this._router.navigate(['confirmation']);
   }
 
-  callDialog(){
+  callDialog(title: string, message: string, type: string) {
     const dialogConfig = new MatDialogConfig;
-        dialogConfig.height = '35%';
-        dialogConfig.width = '40%';
-        dialogConfig.data = {
-          title: 'No Item',
-          message: 'Please input at least 1 item',
-          type: 'ok'
-        }
-    
-        const modalDialog = this._matDialog.open(ConfirmDialog, dialogConfig)
+    dialogConfig.height = '35%';
+    dialogConfig.width = '40%';
+    dialogConfig.data = {
+      title: title,
+      message: message,
+      type: type
+    }
+
+    const modalDialog = this._matDialog.open(ConfirmDialog, dialogConfig)
   }
 }

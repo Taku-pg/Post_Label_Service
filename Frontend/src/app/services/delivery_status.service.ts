@@ -68,7 +68,10 @@ export class DeliveryStatusService {
                     amount: 2,
                     weight: 0.1,
                     countryOfOrigin: 'United States',
-                    type: 't1'
+                    type: {
+                        type: 'food',
+                        taxFree: true
+                    }
                 },
                 {
                     productName: 'i2',
@@ -76,7 +79,10 @@ export class DeliveryStatusService {
                     amount: 2,
                     weight: 0.1,
                     countryOfOrigin: 'United States',
-                    type: 't1'
+                    type: {
+                        type: 'food',
+                        taxFree: true
+                    }
                 },
             ]
         }

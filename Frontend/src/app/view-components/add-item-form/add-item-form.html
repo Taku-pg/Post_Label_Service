@@ -21,7 +21,7 @@
                 @if(addItemForm.get('amount')?.hasError('required') ){
                 <small class="error">Enter amount of product</small>
                 }@else if (addItemForm.get('amount')?.hasError('min')) {
-                <small class="error">Minimum amount is 1</small>                   
+                <small class="error">Minimum amount is 1</small>
                 }
                 }
             </div>
@@ -57,7 +57,9 @@
             <label for="type-name" class="input-label">Type</label>
             <select id="type-name" name="type-name" class="select-field" required="" formControlName="type">
                 <option value="" disabled hidden selected>Select Item Type</option>
-                <option value="food">Food</option>
+                @for (type of types(); track $index) {
+                <option value="{{type.type}}">{{type.type}}</option>
+                }
             </select>
             @if(addItemForm.get('type')?.touched){
             @if(addItemForm.get('type')?.hasError('required') ){

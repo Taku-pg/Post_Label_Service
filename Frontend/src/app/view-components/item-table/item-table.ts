@@ -1,10 +1,11 @@
 import { Component, inject, input, computed, output, Signal } from '@angular/core';
 import { DeliveryService } from '../../services/delivery.service';
 import { Item } from '../../models/item.model';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-item-table',
-  imports: [],
+  imports: [UpperCasePipe],
   templateUrl: './item-table.html',
   styleUrl: './item-table.css',
 })
