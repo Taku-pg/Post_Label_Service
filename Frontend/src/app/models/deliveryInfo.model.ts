@@ -19,6 +19,7 @@ interface Sender{
 interface Receiver{
     firstName: string,
     lastName: string,
+    company: string|null,
     address: Address
 }
 

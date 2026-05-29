@@ -50,7 +50,8 @@ export class DeliveryStatusService {
                     country: 'United States'
                 },
                 firstName: 'Andy',
-                lastName: 'Sam'
+                lastName: 'Sam',
+                company: null
             },
             itemType: null,
             deliveryOption: 'express',

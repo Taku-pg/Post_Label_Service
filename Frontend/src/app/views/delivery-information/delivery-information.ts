@@ -84,8 +84,9 @@ export class DeliveryInformation {
         }
       },
       receiver: {
-        firstName: formData.receiverFirstName,
-        lastName: formData.receiverLastName,
+        firstName: formData.receiverFirstName!,
+        lastName: formData.receiverLastName!,
+        company: formData.receiverCompany,
         address: {
           street: formData.receiverStreet!,
           city: formData.receiverCity!,

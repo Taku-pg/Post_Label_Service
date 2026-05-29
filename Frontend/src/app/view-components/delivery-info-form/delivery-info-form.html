@@ -32,7 +32,7 @@
         <div class="form-item">
             <label for="compane-name" class="u-label">Company Name </label>
             <input type="text" placeholder="{{isReadOnly() ? '' : 'Company Name'}}" id="company-name"
-                class="input-field" [readOnly]="isReadOnly()" formControlName="company">
+                class="input-field" [readOnly]="isReadOnly()" formControlName="senderCompany">
         </div>
 
         <div class="form-item">
@@ -105,26 +105,6 @@
             </div>
         </div>
 
-        @if(isInternational()){
-        <div class="form-item">
-            <label for="sender-country" class="u-label">Country</label>
-            <select id="sender-country" class="select-field" required formControlName="senderCountry"
-                [style.pointer-events]="isReadOnly() ? 'none' : 'auto'" [attr.tabindex]="isReadOnly() ? -1 : 0">
-                <option value="" disabled hidden>Select Country</option>
-                @for(country of countries(); track $index ){
-                <option value="country.name.common">{{country.name.common}}</option>
-                }
-            </select>
-            @if(deliveryInfoForm().get('senderCountry')?.touched){
-            @if(deliveryInfoForm().get('senderCountry')?.hasError('required') ){
-            <small class="error">Country is required</small>
-            }
-            }
-        </div>
-        }
-
-
-
     </div>
 
     <div class="form-content">
@@ -151,6 +131,11 @@
                 }
                 }
             </div>
+        </div>
+        <div class="form-item">
+            <label for="compane-name" class="u-label">Company Name </label>
+            <input type="text" placeholder="{{isReadOnly() ? '' : 'Company Name'}}" id="company-name"
+                class="input-field" [readOnly]="isReadOnly()" formControlName="receiverCompany">
         </div>
         <div class="form-item">
             <label for="receiver-street" class="u-label">Street</label>
