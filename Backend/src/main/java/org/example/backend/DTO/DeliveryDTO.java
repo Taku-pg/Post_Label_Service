@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class NewDeliveryDTO{
+public class DeliveryDTO {
     @NotNull
     @NotEmpty
     private String deliveryType;
