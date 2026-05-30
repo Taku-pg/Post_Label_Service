@@ -15,7 +15,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
-    private String phoneNumber;
+    private String phone;
     @Embedded
     private Address address;
     private String company;
@@ -23,13 +23,13 @@ public class User {
     private User(String firstName,
                  String lastName,
                  String email,
-                 String phoneNumber,
+                 String phone,
                  Address address,
                  String company) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         this.address = address;
         this.company = company;
     }
