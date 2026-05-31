@@ -4,9 +4,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Getter
-@Setter
 @NoArgsConstructor
 public class TypeDTO {
+    private Long id;
     @NotNull
     private String type;
     private boolean taxFree;

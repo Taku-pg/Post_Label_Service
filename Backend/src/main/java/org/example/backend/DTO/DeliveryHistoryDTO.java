@@ -5,7 +5,6 @@ import lombok.*;
 import java.time.LocalDate;
 
 @Getter
-@Setter
 @AllArgsConstructor
 public class DeliveryHistoryDTO {
     private LocalDate start;

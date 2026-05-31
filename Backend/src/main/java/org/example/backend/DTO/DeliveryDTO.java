@@ -5,10 +5,10 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @Getter
-@Setter
 @AllArgsConstructor
 public class DeliveryDTO {
     @NotNull
@@ -20,4 +20,8 @@ public class DeliveryDTO {
     @Valid
     @NotNull
     private List<DeliveryItemDTO> contents;
+
+    public List<DeliveryItemDTO> getContents() {
+        return Collections.unmodifiableList(contents);
+    }
 }
