@@ -19,8 +19,9 @@ public class DeliveryItemDTO {
     @NotNull
     private float weight;
     private String countryOfOrigin;
+    @Valid
     @NotNull
-    private Long typeIndex;
+    private TypeDTO type;
 }
 
 

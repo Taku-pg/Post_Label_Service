@@ -38,7 +38,7 @@ public class DeliveryService {
                         .stream()
                         .map(c -> {
                             Type type = typeRepository
-                                    .findTypeById(c.getTypeIndex())
+                                    .findTypeById(c.getType().getId())
                                     .orElseThrow(NoSuchElementException::new);
                             return new ItemConstructDTO(c, type);
                         }).toList();

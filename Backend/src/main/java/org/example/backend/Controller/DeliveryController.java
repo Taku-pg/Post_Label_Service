@@ -32,7 +32,7 @@ public class DeliveryController {
         return ResponseEntity.ok(searchedDelivery);
     }
 
-    @PostMapping()
+    @PostMapping("/register")
     public ResponseEntity<?> registerNewDelivery(@RequestBody @Valid DeliveryDTO deliveryDTO) {
         String trackingId = deliveryService.registerDelivery(deliveryDTO);
         return ResponseEntity.ok(trackingId);
