@@ -19,5 +19,5 @@ public class DeliveryDTO {
     private DeliveryInformationDTO deliveryInfo;
     @Valid
     @NotNull
-    private List<DeliveryItemDTO> content;
+    private List<DeliveryItemDTO> contents;
 }
