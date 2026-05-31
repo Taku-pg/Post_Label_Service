@@ -12,9 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class DeliveryService {
@@ -33,16 +31,14 @@ public class DeliveryService {
 
     @Transactional
     public String registerDelivery(DeliveryDTO deliveryDTO) {
-        String timeStr = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS"));
-        String random = UUID.randomUUID().toString().replace("-", "").substring(0, 10);
-        String trackingId = timeStr + "_" + random;
+        String trackingId = generateUniqueTrackingId();
 
         List<ItemConstructDTO> contents =
-                deliveryDTO.getContent()
+                deliveryDTO.getContents()
                         .stream()
                         .map(c -> {
                             Type type = typeRepository
-                                    .findTypeByTypeName(c.getType().getType())
+                                    .findTypeById(c.getTypeIndex())
                                     .orElseThrow(NoSuchElementException::new);
                             return new ItemConstructDTO(c, type);
                         }).toList();
@@ -55,6 +51,18 @@ public class DeliveryService {
         }
 
         deliveryRepository.save(delivery);
+
+        return trackingId;
+    }
+
+    private String generateUniqueTrackingId() {
+        Set<String> trackingIds = deliveryRepository.findAllTrackingIds();
+        String trackingId;
+        do{
+            String timeStr = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS"));
+            String random = UUID.randomUUID().toString().replace("-", "").substring(0, 5);
+            trackingId = timeStr + "_" + random;
+        }while (trackingIds.contains(trackingId));
 
         return trackingId;
     }
