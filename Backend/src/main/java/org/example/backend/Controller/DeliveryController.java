@@ -7,7 +7,8 @@ import org.example.backend.Service.DeliveryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/api/v1/delivery")
+@RestController
+@RequestMapping("/api/v1/delivery")
 public class DeliveryController {
 
     private final DeliveryService deliveryService;
@@ -21,6 +22,7 @@ public class DeliveryController {
         if(trackingId == null || trackingId.isEmpty())
             return ResponseEntity.notFound().build();
 
+        IO.println("Delivery requested for trackingId: " + trackingId);
         SearchedDeliveryStatusDTO searchedDelivery
                 = deliveryService.searchDelivery(trackingId);
 
@@ -30,8 +32,9 @@ public class DeliveryController {
         return ResponseEntity.ok(searchedDelivery);
     }
 
-    @PostMapping("/new")
+    @PostMapping()
     public ResponseEntity<?> registerNewDelivery(@RequestBody @Valid DeliveryDTO deliveryDTO) {
-        return ResponseEntity.ok().build();
+        String trackingId = deliveryService.registerDelivery(deliveryDTO);
+        return ResponseEntity.ok(trackingId);
     }
 }

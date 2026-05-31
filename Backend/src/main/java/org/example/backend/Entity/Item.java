@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Item {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String productName;
     private int amount;
@@ -25,6 +25,7 @@ public class Item {
                 int amount,
                 float price,
                 float weight,
+                String countryOfOrigin,
                 Type type,
                 Delivery delivery) {
         if(productName == null || productName.isEmpty()){
@@ -49,6 +50,7 @@ public class Item {
         this.amount = amount;
         this.price = price;
         this.weight = weight;
+        this.countryOfOrigin = countryOfOrigin;
         this.type = type;
         this.delivery = delivery;
     }

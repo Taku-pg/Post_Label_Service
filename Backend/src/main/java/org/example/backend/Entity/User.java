@@ -8,6 +8,7 @@ import org.example.backend.DTO.AddressDTO;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "user_")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

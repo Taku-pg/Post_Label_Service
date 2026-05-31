@@ -61,15 +61,15 @@ public abstract class Delivery {
     @Enumerated(EnumType.STRING)
     private ReturnMethod returnMethod;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private User sender;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private User receiver;
 
-    @OneToMany(mappedBy = "delivery")
+    @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL)
     private List<Item> items;
 
-    @OneToMany(mappedBy = "delivery")
+    @OneToMany(mappedBy = "delivery",  cascade = CascadeType.ALL)
     private List<DeliveryStatus> deliveryStatus = new ArrayList<>();
 
     @ManyToMany
@@ -133,6 +133,7 @@ public abstract class Delivery {
                             itemDTO.getAmount(),
                             itemDTO.getPrice(),
                             itemDTO.getWeight(),
+                            itemDTO.getCountryOfOrigin(),
                             type,
                             this);
                 }
@@ -146,7 +147,7 @@ public abstract class Delivery {
     }
 
     public float getTotalWeight() {
-        return items.stream().map(i-> i.getWeight()*i.getAmount()).reduce(0.0f, Float::sum);
+        return items.stream().map(i -> i.getWeight() * i.getAmount()).reduce(0.0f, Float::sum);
     }
 
 }

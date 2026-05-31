@@ -1,6 +1,8 @@
 package org.example.backend.Entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +30,7 @@ public class InternationalDelivery extends Delivery {
         }
     }
 
+    @Enumerated(EnumType.STRING)
     private Purpose purpose;
 
     public InternationalDelivery(String trackingId,
