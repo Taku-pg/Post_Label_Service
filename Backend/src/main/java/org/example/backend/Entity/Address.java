@@ -17,10 +17,10 @@ public class Address {
                    String city,
                    String zip,
                    String country) {
-        if(street == null || city == null || zip == null || country == null){
+        if(street == null || city == null || zip == null ){
             throw new IllegalArgumentException("All fields must be filled");
         }
-        if(street.isEmpty() || city.isEmpty() || zip.isEmpty() || country.isEmpty()){
+        if(street.isEmpty() || city.isEmpty() || zip.isEmpty() ){
             throw new IllegalArgumentException("All fields must be filled");
         }
         this.street = street;
