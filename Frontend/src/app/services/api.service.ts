@@ -12,7 +12,7 @@ export class ApiService{
     private _httpClient = inject(HttpClient);
 
     registerDelivery(delivery: DeliveryModel){
-        return this._httpClient.post('/api/v1/delivery/register',delivery);
+        return this._httpClient.post('/api/v1/delivery/register',delivery, {responseType: 'text'});
     }
 
     getDeliveryByTrackingId(trackingId: string){
