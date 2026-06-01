@@ -49,11 +49,13 @@ export class ContentInformation {
     }
 
     if (contents.find(c => !c.type.taxFree)) {
-      this.callDialog(
+      const res = this.callDialog(
         'Caution',
         'This delivery will be imposed addtional tax.\nDo you agree?',
         'confirm');
-      return;
+      if(!res!){
+        return;
+      }
     }
 
     this._router.navigate(['confirmation']);
