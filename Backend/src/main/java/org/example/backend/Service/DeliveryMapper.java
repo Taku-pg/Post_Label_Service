@@ -39,7 +39,7 @@ public class DeliveryMapper {
     }
 
     public DeliveryDTO toDeliveryDTO(Delivery delivery) {
-        String deliveryType = delivery instanceof InternationalDelivery ? "International" : "Domestic";
+        String deliveryType = delivery instanceof InternationalDelivery ? "international" : "domestic";
 
         SenderDTO senderDTO = modelMapper.map(delivery.getSender(), SenderDTO.class);
         ReceiverDTO receiverDTO = modelMapper.map(delivery.getReceiver(), ReceiverDTO.class);
