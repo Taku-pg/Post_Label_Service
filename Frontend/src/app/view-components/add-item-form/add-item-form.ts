@@ -2,10 +2,9 @@ import { Component, computed, inject, input} from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { type Item } from '../../models/item.model';
-import { type Type } from '../../models/type.model';
 import { DeliveryService } from '../../services/delivery.service';
-import { UpperCasePipe } from '@angular/common';
 import { TypeService } from '../../services/type.service';
+import { Type } from '../../models/type.model';
 
 @Component({
   selector: 'app-add-item-form',
