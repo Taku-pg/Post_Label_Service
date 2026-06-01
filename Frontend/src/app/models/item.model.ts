@@ -6,5 +6,5 @@ export interface Item{
     price: number,
     weight: number,
     countryOfOrigin: string|null,
-    type: Type
+    type: Type 
 }
