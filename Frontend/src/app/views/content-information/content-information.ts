@@ -4,10 +4,10 @@ import { ItemTable } from "../../view-components/item-table/item-table";
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddItemForm } from '../../view-components/add-item-form/add-item-form';
 import { type Item } from '../../models/item.model';
-import { type Type } from '../../models/type.model';
 import { Router } from '@angular/router';
 import { DeliveryService } from '../../services/delivery.service';
 import { ConfirmDialog } from '../../view-components/confirm-dialog/confirm-dialog';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-content-information',
@@ -38,7 +38,7 @@ export class ContentInformation {
     this._router.navigate(['delivery-info']);
   }
 
-  onClickNext() {
+  async onClickNext() {
     const contents = this._deliveryService.deliveryInfo().contents;
     if (contents.length === 0) {
       this.callDialog(
@@ -49,7 +49,7 @@ export class ContentInformation {
     }
 
     if (contents.find(c => !c.type.taxFree)) {
-      const res = this.callDialog(
+      const res = await this.callDialog(
         'Caution',
         'This delivery will be imposed addtional tax.\nDo you agree?',
         'confirm');
@@ -61,7 +61,7 @@ export class ContentInformation {
     this._router.navigate(['confirmation']);
   }
 
-  callDialog(title: string, message: string, type: string) {
+  async callDialog(title: string, message: string, type: string) {
     const dialogConfig = new MatDialogConfig;
     dialogConfig.height = '35%';
     dialogConfig.width = '40%';
@@ -72,5 +72,7 @@ export class ContentInformation {
     }
 
     const modalDialog = this._matDialog.open(ConfirmDialog, dialogConfig)
+    const res = await firstValueFrom(modalDialog.afterClosed());
+    return res;
   }
 }
