@@ -20,12 +20,11 @@ public class DomesticDelivery extends Delivery {
                             String deliveryOption,
                             SenderDTO senderDTO,
                             ReceiverDTO receiverDTO,
-                            List<ItemConstructDTO> contents,
                             String contentType) {
         if(contentType==null || contentType.isEmpty()){
             throw  new IllegalArgumentException("Content Type cannot be empty");
         }
-        super(trackingId, deliveryOption, senderDTO, receiverDTO, contents);
+        super(trackingId, deliveryOption, senderDTO, receiverDTO);
         this.contentType = contentType;
         super.setReturnMethod(ReturnMethod.SAME);
     }

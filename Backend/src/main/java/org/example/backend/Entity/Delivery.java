@@ -79,8 +79,7 @@ public abstract class Delivery {
     protected Delivery(String trackingId,
                        String deliveryOption,
                        SenderDTO senderDTO,
-                       ReceiverDTO receiverDTO,
-                       List<ItemConstructDTO> contents
+                       ReceiverDTO receiverDTO
                        ) {
         if (trackingId == null || trackingId.isEmpty()) {
             throw new IllegalArgumentException("trackingId cannot be null or empty");
@@ -93,9 +92,6 @@ public abstract class Delivery {
         }
         if (receiverDTO == null) {
             throw new IllegalArgumentException("receiver cannot be null");
-        }
-        if (contents == null || contents.isEmpty()) {
-            throw new IllegalArgumentException("items cannot be null or empty");
         }
 
         this.trackingId = trackingId;
@@ -118,21 +114,6 @@ public abstract class Delivery {
                 receiverDTO.getAddress(),
                 receiverDTO.getCompany()
         );
-
-        this.items = contents.stream()
-                .map(c->{
-                    Type type = c.getType();
-                    DeliveryItemDTO itemDTO = c.getDeliveryItemDTO();
-                    return new Item(
-                            itemDTO.getProductName(),
-                            itemDTO.getAmount(),
-                            itemDTO.getPrice(),
-                            itemDTO.getWeight(),
-                            itemDTO.getCountryOfOrigin(),
-                            type,
-                            this);
-                }
-                ).collect(Collectors.toList());
 
         deliveryStatus.add(new DeliveryStatus(this));
     }

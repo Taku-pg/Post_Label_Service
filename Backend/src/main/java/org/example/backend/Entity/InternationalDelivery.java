@@ -6,11 +6,13 @@ import jakarta.persistence.Enumerated;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.backend.DTO.DeliveryItemDTO;
 import org.example.backend.DTO.ItemConstructDTO;
 import org.example.backend.DTO.ReceiverDTO;
 import org.example.backend.DTO.SenderDTO;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Getter
@@ -38,7 +40,7 @@ public class InternationalDelivery extends Delivery {
                                  String returnMethod,
                                  SenderDTO senderDTO,
                                  ReceiverDTO receiverDTO,
-                                 List<ItemConstructDTO> itemConstructDTOS,
+                                 List<ItemConstructDTO> contents,
                                  String purpose) {
         if(purpose==null || purpose.isEmpty()){
             throw new IllegalArgumentException(String.format("Purpose %s is not a valid Purpose", purpose));
@@ -46,8 +48,26 @@ public class InternationalDelivery extends Delivery {
         if(returnMethod==null || returnMethod.isEmpty()){
             throw new IllegalArgumentException(String.format("ReturnMethod %s is not a valid ReturnMethod", returnMethod));
         }
-        super(trackingId, deliveryOption, senderDTO, receiverDTO, itemConstructDTOS);
+        if(contents==null || contents.isEmpty()){
+            throw new IllegalArgumentException(String.format("Contents %s is not a valid Contents", contents));
+        }
+        super(trackingId, deliveryOption, senderDTO, receiverDTO);
         this.purpose = Purpose.fromString(purpose);
         super.setReturnMethod(ReturnMethod.fromString(returnMethod));
+
+        super.setItems( contents.stream()
+                .map(c->{
+                            Type type = c.getType();
+                            DeliveryItemDTO itemDTO = c.getDeliveryItemDTO();
+                            return new Item(
+                                    itemDTO.getProductName(),
+                                    itemDTO.getAmount(),
+                                    itemDTO.getPrice(),
+                                    itemDTO.getWeight(),
+                                    itemDTO.getCountryOfOrigin(),
+                                    type,
+                                    this);
+                        }
+                ).collect(Collectors.toList()));
     }
 }

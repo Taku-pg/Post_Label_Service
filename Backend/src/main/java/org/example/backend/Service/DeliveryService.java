@@ -90,10 +90,8 @@ public class DeliveryService {
         ReceiverDTO newReceiver = deliveryInfoDTO.getReceiver();
         return new DomesticDelivery(trackingId,
                 deliveryInfoDTO.getDeliveryOption(),
-                deliveryInfoDTO.getReturnMethod(),
                 newSender,
                 newReceiver,
-                contents,
                 deliveryInfoDTO.getItemType());
     }
 
