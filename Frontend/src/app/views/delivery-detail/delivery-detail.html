@@ -1,8 +1,10 @@
 <div class="delivery-detail">
     <div class="contents">
-        <app-delivery-info-form [isReadOnly]="true" [deliveryModel]="deliveryStatus().delivery!"/>
+        <app-delivery-info-form [isReadOnly]="true" [deliveryModel]="deliveryStatus().delivery!" />
         <hr class="border">
-        <app-item-table [isReadOnly]="true" [items]="deliveryStatus().delivery?.contents"/>
+        @if(isInternaional()){
+        <app-item-table [isReadOnly]="true" [items]="deliveryStatus().delivery?.contents" />
+        }
     </div>
     <button class="back-button" type="button" (click)="onClickBack()">Back</button>
 </div>
