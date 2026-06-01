@@ -41,9 +41,13 @@ public class InternationalDelivery extends Delivery {
                                  List<ItemConstructDTO> itemConstructDTOS,
                                  String purpose) {
         if(purpose==null || purpose.isEmpty()){
-
+            throw new IllegalArgumentException(String.format("Purpose %s is not a valid Purpose", purpose));
         }
-        super(trackingId, deliveryOption, returnMethod, senderDTO, receiverDTO, itemConstructDTOS);
+        if(returnMethod==null || returnMethod.isEmpty()){
+            throw new IllegalArgumentException(String.format("ReturnMethod %s is not a valid ReturnMethod", returnMethod));
+        }
+        super(trackingId, deliveryOption, senderDTO, receiverDTO, itemConstructDTOS);
         this.purpose = Purpose.fromString(purpose);
+        super.setReturnMethod(ReturnMethod.fromString(returnMethod));
     }
 }

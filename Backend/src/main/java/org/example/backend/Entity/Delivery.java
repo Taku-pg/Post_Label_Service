@@ -78,7 +78,6 @@ public abstract class Delivery {
 
     protected Delivery(String trackingId,
                        String deliveryOption,
-                       String returnMethod,
                        SenderDTO senderDTO,
                        ReceiverDTO receiverDTO,
                        List<ItemConstructDTO> contents
@@ -88,9 +87,6 @@ public abstract class Delivery {
         }
         if (deliveryOption == null || deliveryOption.isEmpty()) {
             throw new IllegalArgumentException("deliveryOption cannot be null");
-        }
-        if (returnMethod == null || returnMethod.isEmpty()) {
-            throw new IllegalArgumentException("returnMethod cannot be null");
         }
         if (senderDTO == null) {
             throw new IllegalArgumentException("sender cannot be null");
@@ -105,7 +101,6 @@ public abstract class Delivery {
         this.trackingId = trackingId;
         this.registeredDate = LocalDate.now();
         this.deliveryOption = DeliveryOption.fromString(deliveryOption);
-        this.returnMethod = ReturnMethod.fromString(returnMethod);
 
 
         this.sender = User.createSender(
