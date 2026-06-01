@@ -19,14 +19,18 @@ const DEFAULT_DELIVERY_MOEDL: DeliveryModel = {
 export class DeliveryService {
     private readonly KEY = env.SESSION_KEY;
     private _deliveryInfo = signal<DeliveryModel>(this.load());
+    private _trackingId = signal<String>('');
 
     readonly deliveryInfo = this._deliveryInfo.asReadonly();
+    readonly trackingId = this._trackingId.asReadonly();
     readonly types: Type[] = [
         {
+            id: 1,
             type: 'food',
             taxFree: true
         },
         {
+            id: 2,
             type: 'alcohol',
             taxFree: false
         }
@@ -54,6 +58,7 @@ export class DeliveryService {
 
     reset() {
         this._deliveryInfo.set(DEFAULT_DELIVERY_MOEDL);
+        this._trackingId.set('');
     }
 
     setDeliveryType(deliveryType: string) {
@@ -79,4 +84,7 @@ export class DeliveryService {
         this._deliveryInfo.update(curr => ({ ...curr, contents: newContents }));
     }
 
+    setTrackingId(id: string){
+        this._trackingId.set(id);
+    }
 }

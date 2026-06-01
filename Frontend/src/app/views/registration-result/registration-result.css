@@ -1,0 +1,19 @@
+.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 73vh;
+}
+
+.main-button{
+    border-radius: 5px;
+    background-color: rgb(225, 99, 99);
+    color: white;
+    border: white;
+    padding: 10px 15px;
+}
+
+.main-button:hover{
+    background-color: rgb(193, 64, 64);
+}

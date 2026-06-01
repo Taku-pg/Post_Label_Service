@@ -7,6 +7,7 @@ import { Error } from './views/error/error';
 import { DeliverySearch } from './views/delivery-search/delivery-search';
 import { DeliveryDetail } from './views/delivery-detail/delivery-detail';
 import { DeliveryOverview } from './views/delivery-overview/delivery-overview';
+import { RegistrationResult } from './views/registration-result/registration-result';
 
 export const routes: Routes = [
     {
@@ -41,6 +42,10 @@ export const routes: Routes = [
     {
         path: 'delivery-detail',
         component: DeliveryDetail
+    },
+    {
+        path: 'registration-result',
+        component: RegistrationResult
     },
     {
         path: 'error/500',
