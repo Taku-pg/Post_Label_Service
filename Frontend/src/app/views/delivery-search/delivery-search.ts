@@ -28,10 +28,6 @@ export class DeliverySearch implements OnInit{
     }
     const trackingId = this.trackingIdControl.value;
 
-    this._deliveryStatusService.setDemoData();
-    this._router.navigate(['delivery-overview']);
-    return;
-
     this._apiService.getDeliveryByTrackingId(trackingId!).subscribe({
       next: (res)=>{
         this._router.navigate(['delivery-overview']);
