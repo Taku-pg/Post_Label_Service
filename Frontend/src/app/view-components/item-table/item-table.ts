@@ -19,7 +19,7 @@ export class ItemTable {
   totalValues = computed(()=>{
     const totalAmount: number = this.items()!.map(i=>i.amount).reduce((acc,crr)=>acc+crr,0);
     
-    const toatlPrice: number = this.items()!.map(i=>{
+    const totalPriceNum: number = this.items()!.map(i=>{
       const base: number = i.price*i.amount;
       return Math.floor(base*100)/100
     }).reduce((acc,crr)=>acc+crr,0);
@@ -29,10 +29,12 @@ export class ItemTable {
       return Math.floor(base*1000)/1000;
     }).reduce((acc,crr)=>acc+crr,0);
 
+    const totalPrice = totalPriceNum.toFixed(2);
     const totalWeight = totalWeightNum.toFixed(3);
+    
 
     return {
-      toatlPrice: toatlPrice,
+      totalPrice: totalPrice,
       totalAmount: totalAmount,
       totalWeight: totalWeight
     }
