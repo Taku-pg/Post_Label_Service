@@ -30,6 +30,7 @@ export class DeliverySearch implements OnInit{
 
     this._apiService.getDeliveryByTrackingId(trackingId!).subscribe({
       next: (res)=>{
+        this._deliveryStatusService.set(res);
         this._router.navigate(['delivery-overview']);
       },
       error: ()=>{
@@ -43,7 +44,6 @@ export class DeliverySearch implements OnInit{
   }
 
   setNotFoundError(){
-    console.log('called');
     this.trackingIdControl.setErrors({
       notFound: true
     });

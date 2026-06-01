@@ -5,6 +5,7 @@ import { type Item } from '../../models/item.model';
 import { type Type } from '../../models/type.model';
 import { DeliveryService } from '../../services/delivery.service';
 import { UpperCasePipe } from '@angular/common';
+import { TypeService } from '../../services/type.service';
 
 @Component({
   selector: 'app-add-item-form',
@@ -15,10 +16,11 @@ import { UpperCasePipe } from '@angular/common';
 export class AddItemForm {
   private _dialog = inject(MatDialogRef);
   private _fb = inject(FormBuilder);
-  private deliveryService = inject(DeliveryService);
+  private _deliveryService = inject(DeliveryService);
+  private _typeService = inject(TypeService);
 
   types = computed(()=>{
-    return this.deliveryService.types;
+    return this._typeService.types();
   })
 
   addItemForm = this._fb.group({
@@ -51,7 +53,7 @@ export class AddItemForm {
       countryOfOrigin: formValue.countryOfOrigin!
     }
 
-    this.deliveryService.addItem(newItem);
+    this._deliveryService.addItem(newItem);
     this.closeDialog();
   }
 

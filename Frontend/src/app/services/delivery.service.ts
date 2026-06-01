@@ -23,18 +23,6 @@ export class DeliveryService {
 
     readonly deliveryInfo = this._deliveryInfo.asReadonly();
     readonly trackingId = this._trackingId.asReadonly();
-    readonly types: Type[] = [
-        {
-            id: 1,
-            type: 'food',
-            taxFree: true
-        },
-        {
-            id: 2,
-            type: 'alcohol',
-            taxFree: false
-        }
-    ];
 
     constructor() {
         effect(() => {

@@ -16,7 +16,7 @@ export class ApiService{
     }
 
     getDeliveryByTrackingId(trackingId: string){
-        return this._httpClient.get<DeliveryStatusModel>('/api/v1/delivery/${trackingId}');
+        return this._httpClient.get<DeliveryStatusModel>(`/api/v1/delivery/${trackingId}`);
     }
 
     getCountryList(){
