@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, Signal } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { type DeliveryModel } from '../../models/delivery.model';
 import { CountryListService } from '../../services/country-list.service';
@@ -15,9 +15,9 @@ export class DeliveryInfoForm {
   deliveryModel = input.required<DeliveryModel>();
   isReadOnly = input<boolean>(false);
 
-  countries = computed(()=>{
+  countries = computed(() => {
     return this._countryListService.countries()?.sort(
-      (a,b)=>a.name.common.localeCompare(b.name.common));
+      (a, b) => a.name.common.localeCompare(b.name.common));
   })
   isInternational = computed(() => {
     return this.deliveryModel().deliveryType === 'international';
@@ -28,29 +28,37 @@ export class DeliveryInfoForm {
   receiver = computed(() => {
     return this.deliveryModel().deliveryInfo?.receiver;
   });
-  itemType = computed(()=>{
+  itemType = computed(() => {
     return this.deliveryModel().deliveryInfo?.itemType;
   })
   deliveryOption = computed(() => {
-    return this.deliveryModel().deliveryInfo?.deliveryOption;
+    const option = this.deliveryModel().deliveryInfo?.deliveryOption;
+    if (!option) {
+      return null;
+    }
+    return option.toLowerCase();
+
   });
   deliveryPurpose = computed(() => {
-    return this.deliveryModel().deliveryInfo?.deliveryPurpose;
+    const purpose = this.deliveryModel().deliveryInfo?.deliveryPurpose;
+    if(!purpose){
+      return null;
+    }
+    return purpose.toLowerCase();
   });
-  returnMethod = computed(()=>{
-    return this.deliveryModel().deliveryInfo?.returnMethod;
+  returnMethod = computed(() => {
+    const method = this.deliveryModel().deliveryInfo?.returnMethod;
+    if(!method){
+      return null;
+    }
+    return method.toLowerCase();
   })
 
   emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
 
-  //domestic doesn't have table page and table in confirm, handle directly change to confirm
-  //tax free handling, create type with is tax free field for type class
-  //api logic
-
   deliveryInfoForm = computed(() => {
-    console.log(this.deliveryOption());
     return this._fb.group({
       firstName: [this.sender()?.firstName, Validators.required],
       lastName: [this.sender()?.lastName, Validators.required],
@@ -60,7 +68,6 @@ export class DeliveryInfoForm {
       senderStreet: [this.sender()?.address.street, Validators.required],
       senderCity: [this.sender()?.address.city, Validators.required],
       senderZip: [this.sender()?.address.zip, Validators.required],
-      senderCountry: [this.sender()?.address.country],
       receiverFirstName: [this.receiver()?.firstName, Validators.required],
       receiverLastName: [this.receiver()?.lastName, Validators.required],
       receiverCompany: [this.receiver()?.company, Validators.required],
@@ -82,7 +89,6 @@ export class DeliveryInfoForm {
   });
 
   validate(): boolean {
-    console.log(this.countries())
     if (this.deliveryInfoForm().invalid) {
       this.deliveryInfoForm().markAllAsTouched();
       return false;

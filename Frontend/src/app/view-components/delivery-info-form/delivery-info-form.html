@@ -180,7 +180,7 @@
                 <option value="" disabled hidden>Select Country</option>
 
                 @for(country of countries(); track $index ){
-                <option value="country.name.common">{{country.name.common}}</option>
+                <option [value]="country.name.common">{{country.name.common}}</option>
                 }
             </select>
             @if(deliveryInfoForm().get('receiverCountry')?.touched){
