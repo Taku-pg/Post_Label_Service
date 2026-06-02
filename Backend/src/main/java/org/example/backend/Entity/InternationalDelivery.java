@@ -70,4 +70,18 @@ public class InternationalDelivery extends Delivery {
                         }
                 ).collect(Collectors.toList()));
     }
+
+    public boolean isTaxFree(){
+        if(this.purpose.equals(Purpose.SALES)){
+            return false;
+        }
+
+        for(Item item:super.getItems()){
+            if(!item.getType().isTaxFree()){
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
