@@ -203,6 +203,12 @@
 
         <input type="text" id="item-type" required class="input-field" formControlName="itemType"
             [readOnly]="isReadOnly()">
+
+            @if(deliveryInfoForm().get('itemType')?.touched){
+            @if(deliveryInfoForm().get('itemType')?.hasError('required') ){
+            <small class="error">Please input item type</small>
+            }
+            }
     </div>
     }
 

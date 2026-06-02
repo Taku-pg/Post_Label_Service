@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, effect } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-error',
@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './error.css',
 })
 export class Error {
+  private _router = inject(Router);
   title = '';
   message = '';
   activatedRouter = inject(ActivatedRoute);
@@ -28,9 +29,13 @@ export class Error {
           break;
         case 500:
           this.title = '500 internal server error';
-          this.message = 'Server error occurred';
+          this.message = 'Server error occurred. \n Please try again later.';
           break;
       }
     });
+  }
+
+  onClickMain(){
+    this._router.navigate(['delivery-type']);
   }
 }

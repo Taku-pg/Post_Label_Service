@@ -4,7 +4,7 @@
 
 
     <div class="confirmation-contents">
-        <app-delivery-info-form [isReadOnly]="true" [deliveryModel]="deliveryInfo()" />
+        <app-delivery-info-form #form [isReadOnly]="true" [deliveryModel]="deliveryInfo()" />
         <hr class="border">
         @if(isInternational()){
         <app-item-table [isReadOnly]="true" [items]="deliveryInfo().contents" />

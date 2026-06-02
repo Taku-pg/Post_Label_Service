@@ -6,7 +6,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConfirmDialog } from '../../view-components/confirm-dialog/confirm-dialog';
 import { DeliveryInfo } from '../../models/deliveryInfo.model';
 import { DeliveryService } from '../../services/delivery.service';
-import { firstValueFrom, Observable } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-delivery-information',
@@ -20,6 +20,13 @@ export class DeliveryInformation {
   private _deliveryService = inject(DeliveryService);
   deliveryInfo = this._deliveryService.deliveryInfo;
   formElement = viewChild<DeliveryInfoForm>('formElement');
+
+  ngAfterViewInit(){
+    const err = window.history.state.error;
+      if(err){
+        this.formElement()?.validate();
+      }
+  }
 
 
   async onClickNext() {

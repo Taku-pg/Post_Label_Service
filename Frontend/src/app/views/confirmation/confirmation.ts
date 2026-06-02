@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, viewChild } from '@angular/core';
 import { Progress } from "../../view-components/progress/progress";
 import { DeliveryInfoForm } from "../../view-components/delivery-info-form/delivery-info-form";
 import { ItemTable } from "../../view-components/item-table/item-table";
@@ -18,25 +18,30 @@ export class Confirmation {
   private _apiServive = inject(ApiService);
 
   deliveryInfo = this._deliveryService.deliveryInfo;
-  isInternational = computed(()=>{
+  isInternational = computed(() => {
     return this.deliveryInfo().deliveryType === 'international'
   })
 
-  onClickConfirm(){
+  onClickConfirm() {
     this._apiServive.registerDelivery(this.deliveryInfo()).subscribe({
-      next: (res)=>{
-        this._deliveryService.setTrackingId(<string>res);
+      next: (res) => {
+        this._deliveryService.setTrackingId(res);
         this._router.navigate(['registration-result']);
       },
-      error: ()=>{
-        console.log('error');
-      } 
+      error: (err) => {
+        if (err.status === 400) {
+          this._router.navigate(['delivery-info'],
+            {
+              state:{error: 400}
+            }
+          );
+        }
+      }
     })
-    console.log(this.deliveryInfo());
   }
 
-  onClickBack(){
-    if(this.isInternational()){
+  onClickBack() {
+    if (this.isInternational()) {
       this._router.navigate(['contents']);
       return;
     }
