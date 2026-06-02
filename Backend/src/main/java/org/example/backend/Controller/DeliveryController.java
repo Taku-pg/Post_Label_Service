@@ -4,7 +4,6 @@ import jakarta.validation.Valid;
 import org.example.backend.DTO.DeliveryDTO;
 import org.example.backend.DTO.SearchedDeliveryStatusDTO;
 import org.example.backend.Service.DeliveryService;
-import org.springframework.boot.jackson.autoconfigure.JacksonProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

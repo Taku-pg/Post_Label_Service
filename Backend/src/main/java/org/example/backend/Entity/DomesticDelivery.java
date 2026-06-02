@@ -4,11 +4,9 @@ import jakarta.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.example.backend.DTO.ItemConstructDTO;
 import org.example.backend.DTO.ReceiverDTO;
 import org.example.backend.DTO.SenderDTO;
 
-import java.util.List;
 
 @Entity
 @Getter
