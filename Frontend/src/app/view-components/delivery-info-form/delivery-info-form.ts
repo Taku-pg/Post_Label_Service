@@ -70,7 +70,7 @@ export class DeliveryInfoForm {
       senderZip: [this.sender()?.address.zip, Validators.required],
       receiverFirstName: [this.receiver()?.firstName, Validators.required],
       receiverLastName: [this.receiver()?.lastName, Validators.required],
-      receiverCompany: [this.receiver()?.company, Validators.required],
+      receiverCompany: [this.receiver()?.company],
       receiverStreet: [this.receiver()?.address.street, Validators.required],
       receiverCity: [this.receiver()?.address.city, Validators.required],
       receiverZip: [this.receiver()?.address.zip, Validators.required],
@@ -90,6 +90,7 @@ export class DeliveryInfoForm {
 
   validate(): boolean {
     if (this.deliveryInfoForm().invalid) {
+      console.log(this.deliveryInfoForm().get('')?.errors);
       this.deliveryInfoForm().markAllAsTouched();
       return false;
     }
