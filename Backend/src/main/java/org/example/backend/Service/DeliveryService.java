@@ -43,12 +43,7 @@ public class DeliveryService {
                             return new ItemConstructDTO(c, type);
                         }).toList();
 
-        Delivery delivery;
-        if (deliveryDTO.getDeliveryType().equals("international")) {
-            delivery = createInternationalDelivery(trackingId, deliveryDTO, contents);
-        } else {
-            delivery = createDomesticDelivery(trackingId, deliveryDTO, contents);
-        }
+        Delivery delivery = createDelivery(trackingId, deliveryDTO, contents);
 
         deliveryRepository.save(delivery);
 
@@ -67,32 +62,30 @@ public class DeliveryService {
         return trackingId;
     }
 
-    private Delivery createInternationalDelivery(String trackingId,
+    private Delivery createDelivery(String trackingId,
                                                  DeliveryDTO deliveryDTO,
                                                  List<ItemConstructDTO> contents) {
-        DeliveryInformationDTO deliveryInfoDTO = deliveryDTO.getDeliveryInfo();
-        SenderDTO newSender = deliveryInfoDTO.getSender();
-        ReceiverDTO newReceiver = deliveryInfoDTO.getReceiver();
-        return new InternationalDelivery(trackingId,
-                deliveryInfoDTO.getDeliveryOption(),
-                deliveryInfoDTO.getReturnMethod(),
-                newSender,
-                newReceiver,
-                contents,
-                deliveryInfoDTO.getDeliveryPurpose());
-    }
 
-    private Delivery createDomesticDelivery(String trackingId,
-                                            DeliveryDTO deliveryDTO,
-                                            List<ItemConstructDTO> contents) {
         DeliveryInformationDTO deliveryInfoDTO = deliveryDTO.getDeliveryInfo();
         SenderDTO newSender = deliveryInfoDTO.getSender();
         ReceiverDTO newReceiver = deliveryInfoDTO.getReceiver();
+
+        if(deliveryDTO.getDeliveryType().equals("international")){
+            return new InternationalDelivery(trackingId,
+                    deliveryInfoDTO.getDeliveryOption(),
+                    deliveryInfoDTO.getReturnMethod(),
+                    newSender,
+                    newReceiver,
+                    contents,
+                    deliveryInfoDTO.getDeliveryPurpose());
+        }
+
         return new DomesticDelivery(trackingId,
                 deliveryInfoDTO.getDeliveryOption(),
                 newSender,
                 newReceiver,
                 deliveryInfoDTO.getItemType());
+
     }
 
     public SearchedDeliveryStatusDTO searchDelivery(String trackingId) {
