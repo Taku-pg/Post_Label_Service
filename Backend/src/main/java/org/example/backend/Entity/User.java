@@ -21,6 +21,11 @@ public class User {
     private Address address;
     private String company;
 
+    @OneToOne()
+    Delivery sentDelivery;
+    @OneToOne()
+    Delivery receiveDelivery;
+
     private User(String firstName,
                  String lastName,
                  String email,
@@ -36,11 +41,12 @@ public class User {
     }
 
     public static User createSender(String firstName,
-                             String lastName,
-                             String email,
-                             String phoneNumber,
-                             AddressDTO addressDTO,
-                             String company) {
+                                    String lastName,
+                                    String email,
+                                    String phoneNumber,
+                                    AddressDTO addressDTO,
+                                    String company,
+                                    Delivery sentDelivery) {
         if(firstName == null || firstName.isEmpty()){
             throw new IllegalArgumentException("First name cannot be empty");
         }
@@ -56,19 +62,25 @@ public class User {
         if(addressDTO == null){
             throw new IllegalArgumentException("Address cannot be empty");
         }
+        if(sentDelivery == null){
+            throw new IllegalArgumentException("Delivery cannot be empty");
+        }
         Address address = new Address(
                 addressDTO.getStreet(),
                 addressDTO.getCity(),
                 addressDTO.getZip(),
                 addressDTO.getCountry()
         );
-        return new User(firstName, lastName, email, phoneNumber, address, company);
+        User sender = new User(firstName, lastName, email, phoneNumber, address, company);
+        sender.setSentDelivery(sentDelivery);
+        return sender;
     }
 
     public static User createReceiver(String firstName,
-                               String lastName,
-                               AddressDTO addressDTO,
-                               String company) {
+                                      String lastName,
+                                      AddressDTO addressDTO,
+                                      String company,
+                                      Delivery receiveDelivery) {
         if(firstName == null || firstName.isEmpty()){
             throw new IllegalArgumentException("First name cannot be empty");
         }
@@ -78,6 +90,9 @@ public class User {
         if(addressDTO == null){
             throw new IllegalArgumentException("Address cannot be empty");
         }
+        if(receiveDelivery == null){
+            throw new IllegalArgumentException("Delivery cannot be empty");
+        }
 
         Address address = new Address(
                 addressDTO.getStreet(),
@@ -86,7 +101,9 @@ public class User {
                 addressDTO.getCountry()
         );
 
-        return new User(firstName, lastName, null, null, address, company);
+        User receiver = new User(firstName, lastName, null, null, address, company);
+        receiver.setReceiveDelivery(receiveDelivery);
+        return receiver;
     }
 
 }

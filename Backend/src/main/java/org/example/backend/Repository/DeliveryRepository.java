@@ -13,6 +13,8 @@ public interface DeliveryRepository extends JpaRepository<Delivery, Long> {
             select d from Delivery d
                         left join fetch d.items i
                         left join fetch i.type
+                        left join fetch d.sender
+                        left join fetch d.receiver
                         where d.trackingId = :trackingId
             """)
     Optional<Delivery> findDeliveryByTrackingId(String trackingId);

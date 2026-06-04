@@ -60,12 +60,12 @@ public abstract class Delivery {
     @Enumerated(EnumType.STRING)
     private ReturnMethod returnMethod;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "sentDelivery", cascade = CascadeType.ALL)
     private User sender;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "receiveDelivery", cascade = CascadeType.ALL)
     private User receiver;
 
-    @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL)
     private List<Item> items;
 
     @OneToMany(mappedBy = "delivery",  cascade = CascadeType.ALL)
@@ -104,14 +104,16 @@ public abstract class Delivery {
                 senderDTO.getEmail(),
                 senderDTO.getPhone(),
                 senderDTO.getAddress(),
-                senderDTO.getCompany()
+                senderDTO.getCompany(),
+                this
         );
 
         this.receiver = User.createReceiver(
                 receiverDTO.getFirstName(),
                 receiverDTO.getLastName(),
                 receiverDTO.getAddress(),
-                receiverDTO.getCompany()
+                receiverDTO.getCompany(),
+                this
         );
 
         deliveryStatus.add(new DeliveryStatus(this));
@@ -125,4 +127,13 @@ public abstract class Delivery {
         return items.stream().map(i -> i.getWeight() * i.getAmount()).reduce(0.0f, Float::sum);
     }
 
+    public void addEmployee(PostOfficeEmployee postOfficeEmployee) {
+        if (postOfficeEmployee == null) {
+            return;
+        }
+        if(!postOfficeEmployees.contains(postOfficeEmployee)) {
+            postOfficeEmployees.add(postOfficeEmployee);
+            postOfficeEmployee.addDelivery(this);
+        }
+    }
 }

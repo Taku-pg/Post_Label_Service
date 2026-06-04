@@ -64,5 +64,16 @@ public class PostOfficeEmployee {
         setCourier(null);
     }
 
+    public void addDelivery(Delivery delivery) {
+        if(delivery == null) {
+            return;
+        }
+
+        if(!managedDeliveries.contains(delivery)) {
+            managedDeliveries.add(delivery);
+            delivery.addEmployee(this);
+        }
+    }
+
 
 }

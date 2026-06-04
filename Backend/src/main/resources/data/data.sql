@@ -13,18 +13,19 @@ values
     ('Furniture', true),
     ('Other', true);
 
-insert into user_ (first_name, last_name, email, phone, company, street, city, country, zip)
-values
-    ('Peggi', 'Abbe', 'pabbe0@princeton.edu', '6158330665', 'Browsedrive', '741 Waywood Place', 'Fengjia', null, '12345'),
-    ('Danya', 'Gotliffe', null,null, 'Linklinks', '8 Sheridan Crossing', 'Fuwah', null, '23456'),
-    ('Belia', 'Bendall', 'bbendall2@marketwatch.com', '7911091645', null, '670 Meadow Vale Trail', 'Warszawa', null, '22011'),
-    ('Kirsten', 'Grut', null, null, null, '97 Independence Park', 'Tingzhou', 'China', '29103');
 
-
-insert into delivery (tracking_id, registered_date, delivery_option, return_method, sender_id, receiver_id)
+insert into delivery (tracking_id, registered_date, delivery_option, return_method)
 values
-    ('20260512134522111_1-ar2', '2026-05-12', 'STANDARD', 'SAME', 1, 2),
-    ('20260605113453012_dG2$6', '2026-06-05', 'EXPRESS', 'CHEAP', 3, 4);
+    ('20260512134522111_1-ar2', '2026-05-12', 'STANDARD', 'SAME'),
+    ('20260605113453012_dG2$6', '2026-06-05', 'EXPRESS', 'CHEAP');
+
+insert into user_ (first_name, last_name, email, phone, company, street, city, country, zip, receive_delivery_id, sent_delivery_id)
+values
+    ('Peggi', 'Abbe', 'pabbe0@princeton.edu', '6158330665', 'Browsedrive', '741 Waywood Place', 'Fengjia', null, '12345',null,1),
+    ('Danya', 'Gotliffe', null,null, 'Linklinks', '8 Sheridan Crossing', 'Fuwah', null, '23456',1,null),
+    ('Belia', 'Bendall', 'bbendall2@marketwatch.com', '7911091645', null, '670 Meadow Vale Trail', 'Warszawa', null, '22011', null,2),
+    ('Kirsten', 'Grut', null, null, null, '97 Independence Park', 'Tingzhou', 'China', '29103',2,null);
+
 
 insert into domestic_delivery(id,content_type) values(1, 'Digital devices');
 insert into international_delivery(id,purpose) values(2, 'GIFT');
