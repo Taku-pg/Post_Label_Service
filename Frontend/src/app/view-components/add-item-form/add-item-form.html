@@ -27,7 +27,7 @@
             </div>
 
             <div class="input-item">
-                <label for="price" class="input-label">Price</label>
+                <label for="price" class="input-label">Unit Price(PLN)</label>
                 <input type="number" id="price" name="price" class="input-field" required="" min="1"
                     formControlName="price">
                 @if(addItemForm.get('price')?.touched){
@@ -40,7 +40,7 @@
             </div>
 
             <div class="input-item">
-                <label for="weight" class="input-label">Weight(kg)</label>
+                <label for="weight" class="input-label">Unit Weight(kg)</label>
                 <input type="number" id="weight" name="weight" class="input-field" required="" step="0.001" min="0.001"
                     formControlName="weight">
                 @if(addItemForm.get('weight')?.touched){
