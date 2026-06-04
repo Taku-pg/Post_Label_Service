@@ -1,9 +1,10 @@
 package org.example.backend.DTO;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.example.backend.Validator.CustomEmail;
+import org.example.backend.Validator.Phone;
 
 @Getter
 @Setter
@@ -14,9 +15,10 @@ public class SenderDTO {
     @NotNull
     private String lastName;
     @NotNull
-    @Email
+    @CustomEmail
     private String email;
     @NotNull
+    @Phone
     private String phone;
     private String company;
     @Valid
