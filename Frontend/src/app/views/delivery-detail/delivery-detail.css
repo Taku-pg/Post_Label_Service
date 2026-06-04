@@ -1,9 +1,13 @@
 .delivery-detail{
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.contents{
+    width: 80vw;
+}
 
 .border {
     border-top: 5px solid rgb(225, 99, 99);
