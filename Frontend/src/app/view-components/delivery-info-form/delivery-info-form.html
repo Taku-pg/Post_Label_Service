@@ -100,6 +100,8 @@
                 @if(deliveryInfoForm().get('senderZip')?.touched){
                 @if(deliveryInfoForm().get('senderZip')?.hasError('required') ){
                 <small class="error">Zip code is required</small>
+                }@else if (deliveryInfoForm().get('senderZip')?.hasError('pattern')) {
+                <small class="error">Invalid zip code</small>
                 }
                 }
             </div>
@@ -167,6 +169,8 @@
                 @if(deliveryInfoForm().get('receiverZip')?.touched){
                 @if(deliveryInfoForm().get('receiverZip')?.hasError('required') ){
                 <small class="error">Zip code is required</small>
+                }@else if (deliveryInfoForm().get('receiverZip')?.hasError('pattern')) {
+                <small class="error">Invalid zip code</small>
                 }
                 }
             </div>

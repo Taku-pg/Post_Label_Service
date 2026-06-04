@@ -37,7 +37,6 @@ export class DeliveryInfoForm {
       return null;
     }
     return option.toLowerCase();
-
   });
   deliveryPurpose = computed(() => {
     const purpose = this.deliveryModel().deliveryInfo?.deliveryPurpose;
@@ -56,6 +55,7 @@ export class DeliveryInfoForm {
 
   emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+  zipRegex = /^[0-9]{5,9}$/;
 
 
   deliveryInfoForm = computed(() => {
@@ -67,13 +67,13 @@ export class DeliveryInfoForm {
       senderCompany: [this.sender()?.company],
       senderStreet: [this.sender()?.address.street, Validators.required],
       senderCity: [this.sender()?.address.city, Validators.required],
-      senderZip: [this.sender()?.address.zip, Validators.required],
+      senderZip: [this.sender()?.address.zip, [Validators.required, Validators.pattern(this.zipRegex)]],
       receiverFirstName: [this.receiver()?.firstName, Validators.required],
       receiverLastName: [this.receiver()?.lastName, Validators.required],
       receiverCompany: [this.receiver()?.company],
       receiverStreet: [this.receiver()?.address.street, Validators.required],
       receiverCity: [this.receiver()?.address.city, Validators.required],
-      receiverZip: [this.receiver()?.address.zip, Validators.required],
+      receiverZip: [this.receiver()?.address.zip, [Validators.required, Validators.pattern(this.zipRegex)]],
       receiverCountry: [this.receiver()?.address.country],
       itemType: [this.itemType()],
       deliveryOption: [
