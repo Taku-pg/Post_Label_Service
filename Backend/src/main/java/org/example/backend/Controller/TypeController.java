@@ -1,6 +1,5 @@
 package org.example.backend.Controller;
 
-import lombok.Getter;
 import org.example.backend.DTO.TypeDTO;
 import org.example.backend.Service.TypeService;
 import org.springframework.http.ResponseEntity;
