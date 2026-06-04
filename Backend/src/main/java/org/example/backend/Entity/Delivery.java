@@ -65,7 +65,7 @@ public abstract class Delivery {
     @OneToOne(cascade = CascadeType.ALL)
     private User receiver;
 
-    @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> items;
 
     @OneToMany(mappedBy = "delivery",  cascade = CascadeType.ALL)
