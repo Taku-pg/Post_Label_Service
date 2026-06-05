@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/v1/type")
 public class TypeController {
 
-    private TypeService typeService;
+    private final TypeService typeService;
 
     public TypeController(TypeService typeService) {
         this.typeService = typeService;

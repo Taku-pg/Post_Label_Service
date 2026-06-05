@@ -11,8 +11,8 @@ import java.util.List;
 @Service
 public class TypeService {
 
-    private TypeRepository typeRepository;
-    private ModelMapper modelMapper;
+    private final TypeRepository typeRepository;
+    private final ModelMapper modelMapper;
 
     public TypeService(TypeRepository typeRepository,
                        ModelMapper modelMapper) {
