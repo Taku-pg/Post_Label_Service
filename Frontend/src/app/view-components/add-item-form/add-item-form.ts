@@ -40,8 +40,6 @@ export class AddItemForm {
 
     const formValue = this.addItemForm.value;
     const selectedType: Type = this.types()!.find(t=>t.type === formValue.type!)!;
-    console.log(formValue.type);
-    console.log(selectedType);
 
     const newItem: Item = {
       productName: formValue.productName!,

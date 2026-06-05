@@ -90,7 +90,6 @@ export class DeliveryInfoForm {
 
   validate(): boolean {
     if (this.deliveryInfoForm().invalid) {
-      console.log(this.deliveryInfoForm().get('')?.errors);
       this.deliveryInfoForm().markAllAsTouched();
       return false;
     }
